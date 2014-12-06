@@ -1,0 +1,1 @@
+index.rst:30: [redirected with Found] http://citizentales.tumblr.com/ to http://citizentales.tumblr.com/proxy.html
