@@ -1,22 +1,28 @@
-###########
-Package Vue
-###########
+vue package
+===========
 
-*******
-Classes
-*******
+Submodules
+----------
 
-Classe Bouton
-=============
+vue.Bouton module
+-----------------
 
 .. automodule:: vue.Bouton
     :members:
     :undoc-members:
     :show-inheritance:
 
+vue.Menu module
+---------------
 
-Contenu du Package
-==================
+.. automodule:: vue.Menu
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
 
 .. automodule:: vue
     :members:
