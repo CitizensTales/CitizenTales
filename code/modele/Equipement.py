@@ -21,7 +21,9 @@ class Equipement():
     def changerArmePrincipale(self, newArme):
         """
         Permet de changer l'arme principale par l'arme donnée en paramètre
+
         :param newArme: Objet nouvelle arme principale
+
         :return: Null
         """
         self.__contenu["ArmePrincipale"] = newArme
@@ -29,7 +31,9 @@ class Equipement():
     def changerArmeSecondaire(self, newArme):
         """
         Permet de changer l'arme secondaire par l'arme donnée en paramètre
+
         :param newArme: Objet nouvelle arme secondaire
+
         :return: Null
         """
         self.__contenu["ArmeSecondaire"] = newArme
@@ -37,7 +41,9 @@ class Equipement():
     def changerPlastron(self, newPlastron):
         """
         Permet de changer le plastron par l'objet donné en paramètre
+
         :param newArme: Objet nouveau plastron
+
         :return: Null
         """
         self.__contenu["Plastron"] = newPlastron
@@ -45,7 +51,9 @@ class Equipement():
     def changerCasque(self, newCasque):
         """
         Permet de changer le casque par l'objet donné en paramètre
+
         :param newArme: Objet nouveau casque
+
         :return: Null
         """
         self.__contenu["Casque"] = newCasque
@@ -53,7 +61,9 @@ class Equipement():
     def changerJambes(self, newJambes):
         """
         Permet de changer l'équipement de jambes par l'objet donné en paramètre
+
         :param newArme: Objet nouvel équipement de jambes
+
         :return: Null
         """
         self.__contenu["Jambes"] = newJambes
@@ -61,7 +71,9 @@ class Equipement():
     def changerAccessoire(self, newAccessoire):
         """
         Permet de changer l'accessoire courant par l'objet donné en paramètre
+
         :param newArme: Objet nouvel accessoire
+
         :return: Null
         """
         self.__contenu["Accessoire"] = newAccessoire
@@ -69,6 +81,7 @@ class Equipement():
     def getArmePrincipale(self):
         """
         Retourne l'arme principale de l'équipement
+
         :return: Objet arme principale
         """
         return self.__contenu["ArmePrincipale"]
@@ -76,6 +89,7 @@ class Equipement():
     def getArmeSecondaire(self):
         """
         Retourne l'arme secondaire de l'équipement
+
         :return: Objet arme secondaire
         """
         return self.__contenu["ArmeSecondaire"]
@@ -83,6 +97,7 @@ class Equipement():
     def getPlastron(self):
         """
         Retourne le plastron de l'équipement
+
         :return: Objet plastron
         """
         return self.__contenu["Plastron"]
@@ -90,6 +105,7 @@ class Equipement():
     def getCasque(self):
         """
         Retourne le casque de l'équipement
+
         :return: Objet casque
         """
         return self.__contenu["Casque"]
@@ -97,6 +113,7 @@ class Equipement():
     def getJambes(self):
         """
         Retourne l'équipement de jambes
+
         :return: Objet jambes
         """
         return self.__contenu["Jambes"]
@@ -104,6 +121,7 @@ class Equipement():
     def getAccessoire(self):
         """
         Retourne l'accessoire de l'équipement
+
         :return: Objet accessoire
         """
         return self.__contenu["Accessoire"]

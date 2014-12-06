@@ -119,24 +119,51 @@
 <dt id="modele.Acteur.Acteur.blesser">
 <tt class="descname">blesser</tt><big>(</big><em>degats</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.blesser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.blesser" title="Permalink to this definition">¶</a></dt>
 <dd><p>Permet de blesser de degats point de vie l&#8217;acteur.</p>
-<p>Active la méthode <tt class="docutils literal"><span class="pre">tuer()</span></tt> si les PV tombent en dessous de 0
-:param degats: int valeur à enlever aux points de vie de l&#8217;acteur</p>
+<p>Active la méthode <tt class="docutils literal"><span class="pre">tuer()</span></tt> si les PV tombent en dessous de 0</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>degats</strong> &#8211; int valeur à enlever aux points de vie de l&#8217;acteur</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="modele.Acteur.Acteur.deplacementAbsolu">
 <tt class="descname">deplacementAbsolu</tt><big>(</big><em>posx</em>, <em>posy</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.deplacementAbsolu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.deplacementAbsolu" title="Permalink to this definition">¶</a></dt>
-<dd><p>Déplace l&#8217;acteur, en faisant ces changements :
-:param posx: int nouvelle valeur de position X
-:param posy: int nouvelle valeur de position Y</p>
+<dd><p>Déplace l&#8217;acteur, en faisant ces changements :</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>posx</strong> &#8211; int nouvelle valeur de position X</li>
+<li><strong>posy</strong> &#8211; int nouvelle valeur de position Y</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="modele.Acteur.Acteur.deplacementRelatif">
 <tt class="descname">deplacementRelatif</tt><big>(</big><em>changeX</em>, <em>changeY</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.deplacementRelatif"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.deplacementRelatif" title="Permalink to this definition">¶</a></dt>
-<dd><p>Déplace l&#8217;acteur, en faisant ces changements :
-:param changeX: int valeur à ajouter à la position X courante
-:param changeY: int valeur à ajouter à la position Y courante</p>
+<dd><p>Déplace l&#8217;acteur, en faisant ces changements :</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>changeX</strong> &#8211; int valeur à ajouter à la position X courante</li>
+<li><strong>changeY</strong> &#8211; int valeur à ajouter à la position Y courante</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -203,8 +230,15 @@
 <dt id="modele.Acteur.Acteur.soigner">
 <tt class="descname">soigner</tt><big>(</big><em>soin</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.soigner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.soigner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Permet de soigner de soin point de vie l&#8217;acteur.</p>
-<p>Ne peut pas dépasser <tt class="docutils literal"><span class="pre">pointDeVieMax</span></tt>
-:param soin: int valeur a ajouter aux points de vie de l&#8217;acteur.</p>
+<p>Ne peut pas dépasser <tt class="docutils literal"><span class="pre">pointDeVieMax</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>soin</strong> &#8211; int valeur a ajouter aux points de vie de l&#8217;acteur.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -226,91 +260,181 @@
 <dl class="method">
 <dt id="modele.Equipement.Equipement.changerAccessoire">
 <tt class="descname">changerAccessoire</tt><big>(</big><em>newAccessoire</em><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.changerAccessoire"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.changerAccessoire" title="Permalink to this definition">¶</a></dt>
-<dd><p>Permet de changer l&#8217;accessoire courant par l&#8217;objet donné en paramètre
-:param newArme: Objet nouvel accessoire
-:return: Null</p>
+<dd><p>Permet de changer l&#8217;accessoire courant par l&#8217;objet donné en paramètre</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newArme</strong> &#8211; Objet nouvel accessoire</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Null</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="modele.Equipement.Equipement.changerArmePrincipale">
 <tt class="descname">changerArmePrincipale</tt><big>(</big><em>newArme</em><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.changerArmePrincipale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.changerArmePrincipale" title="Permalink to this definition">¶</a></dt>
-<dd><p>Permet de changer l&#8217;arme principale par l&#8217;arme donnée en paramètre
-:param newArme: Objet nouvelle arme principale
-:return: Null</p>
+<dd><p>Permet de changer l&#8217;arme principale par l&#8217;arme donnée en paramètre</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newArme</strong> &#8211; Objet nouvelle arme principale</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Null</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="modele.Equipement.Equipement.changerArmeSecondaire">
 <tt class="descname">changerArmeSecondaire</tt><big>(</big><em>newArme</em><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.changerArmeSecondaire"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.changerArmeSecondaire" title="Permalink to this definition">¶</a></dt>
-<dd><p>Permet de changer l&#8217;arme secondaire par l&#8217;arme donnée en paramètre
-:param newArme: Objet nouvelle arme secondaire
-:return: Null</p>
+<dd><p>Permet de changer l&#8217;arme secondaire par l&#8217;arme donnée en paramètre</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newArme</strong> &#8211; Objet nouvelle arme secondaire</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Null</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="modele.Equipement.Equipement.changerCasque">
 <tt class="descname">changerCasque</tt><big>(</big><em>newCasque</em><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.changerCasque"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.changerCasque" title="Permalink to this definition">¶</a></dt>
-<dd><p>Permet de changer le casque par l&#8217;objet donné en paramètre
-:param newArme: Objet nouveau casque
-:return: Null</p>
+<dd><p>Permet de changer le casque par l&#8217;objet donné en paramètre</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newArme</strong> &#8211; Objet nouveau casque</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Null</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="modele.Equipement.Equipement.changerJambes">
 <tt class="descname">changerJambes</tt><big>(</big><em>newJambes</em><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.changerJambes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.changerJambes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Permet de changer l&#8217;équipement de jambes par l&#8217;objet donné en paramètre
-:param newArme: Objet nouvel équipement de jambes
-:return: Null</p>
+<dd><p>Permet de changer l&#8217;équipement de jambes par l&#8217;objet donné en paramètre</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newArme</strong> &#8211; Objet nouvel équipement de jambes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Null</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="modele.Equipement.Equipement.changerPlastron">
 <tt class="descname">changerPlastron</tt><big>(</big><em>newPlastron</em><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.changerPlastron"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.changerPlastron" title="Permalink to this definition">¶</a></dt>
-<dd><p>Permet de changer le plastron par l&#8217;objet donné en paramètre
-:param newArme: Objet nouveau plastron
-:return: Null</p>
+<dd><p>Permet de changer le plastron par l&#8217;objet donné en paramètre</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newArme</strong> &#8211; Objet nouveau plastron</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Null</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="modele.Equipement.Equipement.getAccessoire">
 <tt class="descname">getAccessoire</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.getAccessoire"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.getAccessoire" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retourne l&#8217;accessoire de l&#8217;équipement
-:return: Objet accessoire</p>
+<dd><p>Retourne l&#8217;accessoire de l&#8217;équipement</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Objet accessoire</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="modele.Equipement.Equipement.getArmePrincipale">
 <tt class="descname">getArmePrincipale</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.getArmePrincipale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.getArmePrincipale" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retourne l&#8217;arme principale de l&#8217;équipement
-:return: Objet arme principale</p>
+<dd><p>Retourne l&#8217;arme principale de l&#8217;équipement</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Objet arme principale</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="modele.Equipement.Equipement.getArmeSecondaire">
 <tt class="descname">getArmeSecondaire</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.getArmeSecondaire"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.getArmeSecondaire" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retourne l&#8217;arme secondaire de l&#8217;équipement
-:return: Objet arme secondaire</p>
+<dd><p>Retourne l&#8217;arme secondaire de l&#8217;équipement</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Objet arme secondaire</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="modele.Equipement.Equipement.getCasque">
 <tt class="descname">getCasque</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.getCasque"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.getCasque" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retourne le casque de l&#8217;équipement
-:return: Objet casque</p>
+<dd><p>Retourne le casque de l&#8217;équipement</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Objet casque</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="modele.Equipement.Equipement.getJambes">
 <tt class="descname">getJambes</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.getJambes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.getJambes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retourne l&#8217;équipement de jambes
-:return: Objet jambes</p>
+<dd><p>Retourne l&#8217;équipement de jambes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Objet jambes</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="modele.Equipement.Equipement.getPlastron">
 <tt class="descname">getPlastron</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.getPlastron"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.getPlastron" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retourne le plastron de l&#8217;équipement
-:return: Objet plastron</p>
+<dd><p>Retourne le plastron de l&#8217;équipement</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Objet plastron</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

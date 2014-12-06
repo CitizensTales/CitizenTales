@@ -19,19 +19,6 @@ class Bouton():
                  taillex=10, tailley=10, fonction=None,
                  activeColor=(200, 200, 200), inactiveColor=(20, 20, 20),
                  textColor=(0, 0, 0)):
-        """
-        Constructeur de Bouton
-        :param posx:
-        :param posy:
-        :param texte:
-        :param taillex:
-        :param tailley:
-        :param fonction:
-        :param activeColor:
-        :param inactiveColor:
-        :param textColor:
-        :return:
-        """
         self.__posx = posx
         self.__posy = posy
         self.__text = texte
@@ -45,7 +32,8 @@ class Bouton():
     def getPosX(self):
         """
         Getter de posX
-        :return:
+
+        :return: int self.__posx
         """
         return self.__posx
 
@@ -60,7 +48,9 @@ class Bouton():
 
     def getPosY(self):
         """
-            Getter de __posy
+        Getter de __posy
+
+        :return: self.__posy
         """
         return self.__posy
 

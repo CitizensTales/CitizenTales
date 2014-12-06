@@ -31,6 +31,7 @@ class Menu():
     def render(self):
         """
         Méthode de génération du menu.
+
         :return: retourne la pygame.Surface contenant le menu généré.
         """
         #--Création de la surface principale--
@@ -69,6 +70,7 @@ class Menu():
         """
         Méthode permettant de placer le curseur de menu sur le bouton suivant par rapport au bouton courant.
         Si le bouton courant est actuellement le dernier, le curseur remonte au premier bouton.
+
         :return: Null
         """
         self.__boutonCourant += 1
@@ -80,6 +82,7 @@ class Menu():
         """
         Méthode permettant de placer le curseur de menu sur le bouton précédent par rapport au bouton courant.
         Si le bouton courant est actuellement premier, le curseur descend au dernier bouton.
+
         :return: Null
         """
         self.__boutonCourant -= 1
@@ -89,6 +92,7 @@ class Menu():
     def activerBoutonCourant(self):
         """
         Permet d'activer la méthode lié au bouton courant.
+
         :return: Null
         """
         self.__boutons[self.__boutonCourant].execCommande()
@@ -96,6 +100,7 @@ class Menu():
     def getBoutonCourant(self):
         """
         Retourne le numéro du bouton courant
+
         :return: int self.__boutonCourant
         """
         return self.__boutonCourant
@@ -103,6 +108,7 @@ class Menu():
     def setBoutonCourant(self, newValeur):
         """
         Méthode permettant de changer le bouton courant
+
         :param newValeur: int ID du bouton qui deviendra le nouveau bouton courant.
         """
 

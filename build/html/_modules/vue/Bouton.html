@@ -117,19 +117,6 @@
                  <span class="n">taillex</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">tailley</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fonction</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                  <span class="n">activeColor</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">inactiveColor</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
                  <span class="n">textColor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Constructeur de Bouton</span>
-<span class="sd">        :param posx:</span>
-<span class="sd">        :param posy:</span>
-<span class="sd">        :param texte:</span>
-<span class="sd">        :param taillex:</span>
-<span class="sd">        :param tailley:</span>
-<span class="sd">        :param fonction:</span>
-<span class="sd">        :param activeColor:</span>
-<span class="sd">        :param inactiveColor:</span>
-<span class="sd">        :param textColor:</span>
-<span class="sd">        :return:</span>
-<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__posx</span> <span class="o">=</span> <span class="n">posx</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__posy</span> <span class="o">=</span> <span class="n">posy</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__text</span> <span class="o">=</span> <span class="n">texte</span>
@@ -143,7 +130,8 @@
 <div class="viewcode-block" id="Bouton.getPosX"><a class="viewcode-back" href="../../vue.html#vue.Bouton.Bouton.getPosX">[docs]</a>    <span class="k">def</span> <span class="nf">getPosX</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Getter de posX</span>
-<span class="sd">        :return:</span>
+
+<span class="sd">        :return: int self.__posx</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__posx</span>
 </div>
@@ -158,7 +146,9 @@
 </div>
 <div class="viewcode-block" id="Bouton.getPosY"><a class="viewcode-back" href="../../vue.html#vue.Bouton.Bouton.getPosY">[docs]</a>    <span class="k">def</span> <span class="nf">getPosY</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            Getter de __posy</span>
+<span class="sd">        Getter de __posy</span>
+
+<span class="sd">        :return self.__posy:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__posy</span>
 </div>

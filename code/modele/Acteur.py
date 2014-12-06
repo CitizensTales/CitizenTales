@@ -59,7 +59,9 @@ class Acteur():
     def deplacementRelatif(self, changeX, changeY):
         """
         Déplace l'acteur, en faisant ces changements :
+
         :param changeX: int valeur à ajouter à la position X courante
+
         :param changeY: int valeur à ajouter à la position Y courante
         """
         self.__posX += changeX
@@ -68,7 +70,9 @@ class Acteur():
     def deplacementAbsolu(self, posx, posy):
         """
         Déplace l'acteur, en faisant ces changements :
+
         :param posx: int nouvelle valeur de position X
+
         :param posy: int nouvelle valeur de position Y
         """
         self.__posX = posx
@@ -103,6 +107,7 @@ class Acteur():
         Permet de soigner de soin point de vie l'acteur.
 
         Ne peut pas dépasser ``pointDeVieMax``
+
         :param soin: int valeur a ajouter aux points de vie de l'acteur.
         """
         self.__pointDeVie += soin
@@ -114,6 +119,7 @@ class Acteur():
         Permet de blesser de degats point de vie l'acteur.
 
         Active la méthode ``tuer()`` si les PV tombent en dessous de 0
+
         :param degats: int valeur à enlever aux points de vie de l'acteur
         """
         self.__pointDeVie -= degats

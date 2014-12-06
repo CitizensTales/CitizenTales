@@ -148,14 +148,30 @@
 <dl class="method">
 <dt id="vue.Bouton.Bouton.getPosX">
 <tt class="descname">getPosX</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/vue/Bouton.html#Bouton.getPosX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Bouton.Bouton.getPosX" title="Permalink to this definition">¶</a></dt>
-<dd><p>Getter de posX
-:return:</p>
+<dd><p>Getter de posX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">int self.__posx</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="vue.Bouton.Bouton.getPosY">
 <tt class="descname">getPosY</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/vue/Bouton.html#Bouton.getPosY"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Bouton.Bouton.getPosY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Getter de __posy</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Return self.__posy:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -259,45 +275,87 @@
 <dl class="method">
 <dt id="vue.Menu.Menu.activerBoutonCourant">
 <tt class="descname">activerBoutonCourant</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#Menu.activerBoutonCourant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.Menu.activerBoutonCourant" title="Permalink to this definition">¶</a></dt>
-<dd><p>Permet d&#8217;activer la méthode lié au bouton courant.
-:return: Null</p>
+<dd><p>Permet d&#8217;activer la méthode lié au bouton courant.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Null</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="vue.Menu.Menu.getBoutonCourant">
 <tt class="descname">getBoutonCourant</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#Menu.getBoutonCourant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.Menu.getBoutonCourant" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retourne le numéro du bouton courant
-:return: int self.__boutonCourant</p>
+<dd><p>Retourne le numéro du bouton courant</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">int self.__boutonCourant</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="vue.Menu.Menu.render">
 <tt class="descname">render</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#Menu.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.Menu.render" title="Permalink to this definition">¶</a></dt>
-<dd><p>Méthode de génération du menu.
-:return: retourne la pygame.Surface contenant le menu généré.</p>
+<dd><p>Méthode de génération du menu.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">retourne la pygame.Surface contenant le menu généré.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="vue.Menu.Menu.selectButton_down">
 <tt class="descname">selectButton_down</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#Menu.selectButton_down"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.Menu.selectButton_down" title="Permalink to this definition">¶</a></dt>
 <dd><p>Méthode permettant de placer le curseur de menu sur le bouton suivant par rapport au bouton courant.
-Si le bouton courant est actuellement le dernier, le curseur remonte au premier bouton.
-:return: Null</p>
+Si le bouton courant est actuellement le dernier, le curseur remonte au premier bouton.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Null</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="vue.Menu.Menu.selectButton_up">
 <tt class="descname">selectButton_up</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#Menu.selectButton_up"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.Menu.selectButton_up" title="Permalink to this definition">¶</a></dt>
 <dd><p>Méthode permettant de placer le curseur de menu sur le bouton précédent par rapport au bouton courant.
-Si le bouton courant est actuellement premier, le curseur descend au dernier bouton.
-:return: Null</p>
+Si le bouton courant est actuellement premier, le curseur descend au dernier bouton.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Null</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="vue.Menu.Menu.setBoutonCourant">
 <tt class="descname">setBoutonCourant</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#Menu.setBoutonCourant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.Menu.setBoutonCourant" title="Permalink to this definition">¶</a></dt>
-<dd><p>Méthode permettant de changer le bouton courant
-:param newValeur: int ID du bouton qui deviendra le nouveau bouton courant.</p>
+<dd><p>Méthode permettant de changer le bouton courant</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newValeur</strong> &#8211; int ID du bouton qui deviendra le nouveau bouton courant.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
