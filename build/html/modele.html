@@ -62,6 +62,9 @@
               <!-- Local TOC -->
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">modele package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-modele.Acteur">modele.Acteur module</a></li>
+<li><a class="reference internal" href="#module-modele.Equipement">modele.Equipement module</a></li>
 <li><a class="reference internal" href="#module-modele">Module contents</a></li>
 </ul>
 </li>
@@ -102,6 +105,217 @@
             
   <div class="section" id="modele-package">
 <h1>modele package<a class="headerlink" href="#modele-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-modele.Acteur">
+<span id="modele-acteur-module"></span><h2>modele.Acteur module<a class="headerlink" href="#module-modele.Acteur" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="modele.Acteur.Acteur">
+<em class="property">class </em><tt class="descclassname">modele.Acteur.</tt><tt class="descname">Acteur</tt><big>(</big><em>nom</em>, <em>pdv</em>, <em>pdvMax</em>, <em>posx</em>, <em>posy</em>, <em>img</em>, <em>equip</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<p>Classe définissant un Acteur général</p>
+<dl class="method">
+<dt id="modele.Acteur.Acteur.blesser">
+<tt class="descname">blesser</tt><big>(</big><em>degats</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.blesser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.blesser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Permet de blesser de degats point de vie l&#8217;acteur.</p>
+<p>Active la méthode <tt class="docutils literal"><span class="pre">tuer()</span></tt> si les PV tombent en dessous de 0
+:param degats: int valeur à enlever aux points de vie de l&#8217;acteur</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.deplacementAbsolu">
+<tt class="descname">deplacementAbsolu</tt><big>(</big><em>posx</em>, <em>posy</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.deplacementAbsolu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.deplacementAbsolu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Déplace l&#8217;acteur, en faisant ces changements :
+:param posx: int nouvelle valeur de position X
+:param posy: int nouvelle valeur de position Y</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.deplacementRelatif">
+<tt class="descname">deplacementRelatif</tt><big>(</big><em>changeX</em>, <em>changeY</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.deplacementRelatif"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.deplacementRelatif" title="Permalink to this definition">¶</a></dt>
+<dd><p>Déplace l&#8217;acteur, en faisant ces changements :
+:param changeX: int valeur à ajouter à la position X courante
+:param changeY: int valeur à ajouter à la position Y courante</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.getImage">
+<tt class="descname">getImage</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.getImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.getImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __img</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.getNom">
+<tt class="descname">getNom</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.getNom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.getNom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de nom</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.getPointDeVie">
+<tt class="descname">getPointDeVie</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.getPointDeVie"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.getPointDeVie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __pointDeVie</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.getPointDeVieMax">
+<tt class="descname">getPointDeVieMax</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.getPointDeVieMax"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.getPointDeVieMax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __pointDeVieMax</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.getPosX">
+<tt class="descname">getPosX</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.getPosX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.getPosX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __posX</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.getPosY">
+<tt class="descname">getPosY</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.getPosY"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.getPosY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __posY</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.setImage">
+<tt class="descname">setImage</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.setImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.setImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter __img</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.setNom">
+<tt class="descname">setNom</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.setNom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.setNom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter nom</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.setPointDeVie">
+<tt class="descname">setPointDeVie</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.setPointDeVie"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.setPointDeVie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter __pointDeVie</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.setPointDeVieMax">
+<tt class="descname">setPointDeVieMax</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.setPointDeVieMax"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.setPointDeVieMax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter __pointDeVieMax</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.soigner">
+<tt class="descname">soigner</tt><big>(</big><em>soin</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.soigner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.soigner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Permet de soigner de soin point de vie l&#8217;acteur.</p>
+<p>Ne peut pas dépasser <tt class="docutils literal"><span class="pre">pointDeVieMax</span></tt>
+:param soin: int valeur a ajouter aux points de vie de l&#8217;acteur.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.tuer">
+<tt class="descname">tuer</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.tuer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.tuer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Methode activée une fois que l&#8217;acteur atteint les 0 PV</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modele.Equipement">
+<span id="modele-equipement-module"></span><h2>modele.Equipement module<a class="headerlink" href="#module-modele.Equipement" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="modele.Equipement.Equipement">
+<em class="property">class </em><tt class="descclassname">modele.Equipement.</tt><tt class="descname">Equipement</tt><a class="reference internal" href="_modules/modele/Equipement.html#Equipement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<p>Classe définissant un équipement</p>
+<dl class="method">
+<dt id="modele.Equipement.Equipement.changerAccessoire">
+<tt class="descname">changerAccessoire</tt><big>(</big><em>newAccessoire</em><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.changerAccessoire"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.changerAccessoire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Permet de changer l&#8217;accessoire courant par l&#8217;objet donné en paramètre
+:param newArme: Objet nouvel accessoire
+:return: Null</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Equipement.Equipement.changerArmePrincipale">
+<tt class="descname">changerArmePrincipale</tt><big>(</big><em>newArme</em><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.changerArmePrincipale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.changerArmePrincipale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Permet de changer l&#8217;arme principale par l&#8217;arme donnée en paramètre
+:param newArme: Objet nouvelle arme principale
+:return: Null</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Equipement.Equipement.changerArmeSecondaire">
+<tt class="descname">changerArmeSecondaire</tt><big>(</big><em>newArme</em><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.changerArmeSecondaire"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.changerArmeSecondaire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Permet de changer l&#8217;arme secondaire par l&#8217;arme donnée en paramètre
+:param newArme: Objet nouvelle arme secondaire
+:return: Null</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Equipement.Equipement.changerCasque">
+<tt class="descname">changerCasque</tt><big>(</big><em>newCasque</em><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.changerCasque"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.changerCasque" title="Permalink to this definition">¶</a></dt>
+<dd><p>Permet de changer le casque par l&#8217;objet donné en paramètre
+:param newArme: Objet nouveau casque
+:return: Null</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Equipement.Equipement.changerJambes">
+<tt class="descname">changerJambes</tt><big>(</big><em>newJambes</em><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.changerJambes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.changerJambes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Permet de changer l&#8217;équipement de jambes par l&#8217;objet donné en paramètre
+:param newArme: Objet nouvel équipement de jambes
+:return: Null</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Equipement.Equipement.changerPlastron">
+<tt class="descname">changerPlastron</tt><big>(</big><em>newPlastron</em><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.changerPlastron"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.changerPlastron" title="Permalink to this definition">¶</a></dt>
+<dd><p>Permet de changer le plastron par l&#8217;objet donné en paramètre
+:param newArme: Objet nouveau plastron
+:return: Null</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Equipement.Equipement.getAccessoire">
+<tt class="descname">getAccessoire</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.getAccessoire"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.getAccessoire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retourne l&#8217;accessoire de l&#8217;équipement
+:return: Objet accessoire</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Equipement.Equipement.getArmePrincipale">
+<tt class="descname">getArmePrincipale</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.getArmePrincipale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.getArmePrincipale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retourne l&#8217;arme principale de l&#8217;équipement
+:return: Objet arme principale</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Equipement.Equipement.getArmeSecondaire">
+<tt class="descname">getArmeSecondaire</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.getArmeSecondaire"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.getArmeSecondaire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retourne l&#8217;arme secondaire de l&#8217;équipement
+:return: Objet arme secondaire</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Equipement.Equipement.getCasque">
+<tt class="descname">getCasque</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.getCasque"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.getCasque" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retourne le casque de l&#8217;équipement
+:return: Objet casque</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Equipement.Equipement.getJambes">
+<tt class="descname">getJambes</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.getJambes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.getJambes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retourne l&#8217;équipement de jambes
+:return: Objet jambes</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Equipement.Equipement.getPlastron">
+<tt class="descname">getPlastron</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Equipement.html#Equipement.getPlastron"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Equipement.Equipement.getPlastron" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retourne le plastron de l&#8217;équipement
+:return: Objet plastron</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-modele">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-modele" title="Permalink to this headline">¶</a></h2>
 </div>
