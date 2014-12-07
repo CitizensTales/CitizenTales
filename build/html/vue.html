@@ -167,8 +167,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Return self.__posy:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">self.__posy</td>
 </tr>
 </tbody>
 </table>
@@ -359,6 +358,115 @@ Si le bouton courant est actuellement premier, le curseur descend au dernier bou
 </dd></dl>
 
 </dd></dl>
+
+<dl class="class">
+<dt id="vue.Menu.MenuPrincipal">
+<em class="property">class </em><tt class="descclassname">vue.Menu.</tt><tt class="descname">MenuPrincipal</tt><big>(</big><em>taillex=500</em>, <em>tailley=500</em><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#MenuPrincipal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.MenuPrincipal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vue.Menu.Menu" title="vue.Menu.Menu"><tt class="xref py py-class docutils literal"><span class="pre">vue.Menu.Menu</span></tt></a></p>
+<p>Classe définissant un menu principal.</p>
+<p>Hérite de la classe Menu</p>
+<dl class="method">
+<dt id="vue.Menu.MenuPrincipal.activerBoutonCourant">
+<tt class="descname">activerBoutonCourant</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#MenuPrincipal.activerBoutonCourant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.MenuPrincipal.activerBoutonCourant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Permet d&#8217;activer la méthode lié au bouton courant.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Null</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vue.Menu.MenuPrincipal.getBoutonCourant">
+<tt class="descname">getBoutonCourant</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#MenuPrincipal.getBoutonCourant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.MenuPrincipal.getBoutonCourant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retourne le numéro du bouton courant</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">int self.__boutonCourant</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vue.Menu.MenuPrincipal.render">
+<tt class="descname">render</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#MenuPrincipal.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.MenuPrincipal.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Méthode de rendu de surface du menu principal</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">pygame.Surface</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vue.Menu.MenuPrincipal.selectButton_down">
+<tt class="descname">selectButton_down</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#MenuPrincipal.selectButton_down"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.MenuPrincipal.selectButton_down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Méthode permettant de placer le curseur de menu sur le bouton suivant par rapport au bouton courant.
+Si le bouton courant est actuellement le dernier, le curseur remonte au premier bouton.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Null</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vue.Menu.MenuPrincipal.selectButton_up">
+<tt class="descname">selectButton_up</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#MenuPrincipal.selectButton_up"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.MenuPrincipal.selectButton_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Méthode permettant de placer le curseur de menu sur le bouton précédent par rapport au bouton courant.
+Si le bouton courant est actuellement premier, le curseur descend au dernier bouton.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Null</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="vue.Menu.MenuPrincipal.setBoutonCourant">
+<tt class="descname">setBoutonCourant</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#MenuPrincipal.setBoutonCourant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.MenuPrincipal.setBoutonCourant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Méthode permettant de changer le bouton courant</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newValeur</strong> &#8211; int ID du bouton qui deviendra le nouveau bouton courant.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="vue.Menu.chargerPartie">
+<tt class="descclassname">vue.Menu.</tt><tt class="descname">chargerPartie</tt><big>(</big><em>*args</em><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#chargerPartie"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.chargerPartie" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="vue.Menu.nouvellePartie">
+<tt class="descclassname">vue.Menu.</tt><tt class="descname">nouvellePartie</tt><big>(</big><em>*args</em><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#nouvellePartie"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.nouvellePartie" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="vue.Menu.quitter">
+<tt class="descclassname">vue.Menu.</tt><tt class="descname">quitter</tt><big>(</big><em>*args</em><big>)</big><a class="reference internal" href="_modules/vue/Menu.html#quitter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#vue.Menu.quitter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="module-vue">
