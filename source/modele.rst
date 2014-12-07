@@ -20,6 +20,14 @@ modele.Equipement module
     :undoc-members:
     :show-inheritance:
 
+modele.Terrain module
+---------------------
+
+.. automodule:: modele.Terrain
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 
 Module contents
 ---------------

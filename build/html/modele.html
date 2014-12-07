@@ -65,6 +65,7 @@
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-modele.Acteur">modele.Acteur module</a></li>
 <li><a class="reference internal" href="#module-modele.Equipement">modele.Equipement module</a></li>
+<li><a class="reference internal" href="#module-modele.Terrain">modele.Terrain module</a></li>
 <li><a class="reference internal" href="#module-modele">Module contents</a></li>
 </ul>
 </li>
@@ -437,6 +438,67 @@
 </table>
 </dd></dl>
 
+</dd></dl>
+
+</div>
+<div class="section" id="module-modele.Terrain">
+<span id="modele-terrain-module"></span><h2>modele.Terrain module<a class="headerlink" href="#module-modele.Terrain" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="modele.Terrain.Case">
+<em class="property">class </em><tt class="descclassname">modele.Terrain.</tt><tt class="descname">Case</tt><big>(</big><em>passable</em>, <em>bloqueVision</em>, <em>img</em><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Case"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Case" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<p>Classe définissant une case du terrain</p>
+<dl class="method">
+<dt id="modele.Terrain.Case.estPassable">
+<tt class="descname">estPassable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Case.estPassable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Case.estPassable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __passable</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Case.getBloqueVision">
+<tt class="descname">getBloqueVision</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Case.getBloqueVision"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Case.getBloqueVision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __bloqueVision</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Case.getImage">
+<tt class="descname">getImage</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Case.getImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Case.getImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __img</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Case.setBloqueVision">
+<tt class="descname">setBloqueVision</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Case.setBloqueVision"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Case.setBloqueVision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter __bloqueVision</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Case.setImage">
+<tt class="descname">setImage</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Case.setImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Case.setImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter __img</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Case.setPassable">
+<tt class="descname">setPassable</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Case.setPassable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Case.setPassable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter __passable</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newValeur</strong> (<em>boolean</em>) &#8211; est ce que la case est passable ?</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="modele.Terrain.Niveau">
+<em class="property">class </em><tt class="descclassname">modele.Terrain.</tt><tt class="descname">Niveau</tt><big>(</big><em>taillex=0</em>, <em>tailley=0</em>, <em>matrice=[]</em>, <em>fichier='defaut'</em><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Niveau"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Niveau" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<p>Classe définissant les méthodes et attributs d&#8217;un niveau de jeu</p>
 </dd></dl>
 
 </div>
