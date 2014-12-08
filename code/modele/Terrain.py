@@ -80,10 +80,17 @@ class Niveau():
         :return: Null
         """
         if fichier != "defaut":
-            self.chargerFichier(fichier)
+            self.__matrice = self.chargerFichier(fichier)
         elif matrice != []:
-            self.chargerMatrice(matrice)
+            self._matrice = matrice
         else:
             self.__matrice = [[Case(True, False, ".") for x in range(taillex)] for y in range(tailley)]
 
-    #TODO Continuer a écrire la classe Niveau !
+
+    def chargerFichier(self, fichier):
+        """
+        Méthode permettant de charger la matrice contenue dans un fichier dans le niveau courant.
+
+        :param fichier: chemin du fichier a charger
+        """
+        #TODO Ecrire cette méthode
