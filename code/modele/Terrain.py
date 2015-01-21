@@ -12,6 +12,13 @@ Ce module regroupe toutes les cases liées au terrain.
     - Terrain
 """
 
+def loadConfigTiles():
+    with open("modele/config_tiles.txt", "r") as configtiles:
+        liste = [x for x in configtiles]
+    raw_tilesList = [[x.strip() for x in y.split(";")] for y in liste]
+    tilesDict = {name : Case(passable, bloque, "img/"+img) for (name, passable, bloque, img) in raw_tilesList}
+    return tilesDict
+
 
 class Case():
 
@@ -80,12 +87,14 @@ class Niveau():
         :return: Null
         """
         if fichier != "defaut":
-            self.__matrice = self.chargerFichier(fichier)
+            self.chargerFichier(fichier)
         elif matrice != []:
-            self._matrice = matrice
+            self.__matrice = matrice
         else:
             self.__matrice = [[Case(True, False, ".") for x in range(taillex)] for y in range(tailley)]
 
+    def getMatrice(self):
+        return self.__matrice
 
     def chargerFichier(self, fichier):
         """
@@ -93,4 +102,52 @@ class Niveau():
 
         :param fichier: chemin du fichier a charger
         """
-        #TODO Ecrire cette méthode
+
+        with open(fichier, "r") as niveau:
+            liste = [x.strip("\n ") for x in niveau]
+        raw_matrice = [x.split("|") for x in liste]
+
+        maxTailleX = 0
+        for x in raw_matrice:
+            if(len(x) > maxTailleX):
+                maxTailleX = len(x)
+
+        self.tailley = len(raw_matrice)
+        self.taillex = maxTailleX
+
+        tilesDict = loadConfigTiles()
+
+        self.__matrice = [[tilesDict[name] for name in x] for x in raw_matrice]
+
+
+class Immeuble():
+    """
+    Classe consistant en une structure de donnée ordonnée de Niveau
+    """
+
+    def __init__(self):
+        self.__niveaux = [Niveau(20, 20)]
+        self.__niveauCourant = 0
+        self.__nbrEtages = 0
+
+    def ajouterNiveau(self, niveau):
+        if (self.__nbrEtages == 0):
+            self.__niveaux = [niveau]
+        else:
+            self.__niveaux += niveau
+        self.__nbrEtages += 1
+
+    def monterNiveau(self):
+        if (self.__niveauCourant + 1) <= self.__nbrEtages:
+            self.__niveauCourant += 1
+
+    def descendreNiveau(self):
+        if (self.__niveauCourant > 0):
+            self.__niveauCourant += 1
+
+    def setNiveauCourant(self, nouveauNiveauCourant):
+        if (nouveauNiveauCourant >= 0) and (nouveauNiveauCourant <= self.__nbrEtages):
+            self.__niveauCourant = nouveauNiveauCourant
+
+    def getNiveauCourant(self):
+        return self.__niveaux[self.__niveauCourant]

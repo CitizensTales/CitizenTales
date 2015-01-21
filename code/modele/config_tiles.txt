@@ -1,0 +1,3 @@
+_ ; False ; True ; dev_void.png
+X ; False ; False ; dev_wall.png
+. ; True ; False ; dev_floor.png
