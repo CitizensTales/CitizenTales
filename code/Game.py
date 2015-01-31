@@ -3,6 +3,7 @@ __author__ = 'Argann'
 from modele import Terrain
 import pygame
 from pygame.locals import *
+from conf import Configuration
 
 """
 Module décrivant certaines méchaniques de jeu
@@ -38,11 +39,10 @@ class CurrentGame():
 
     def loadSettings(self):
         """
-        Méthode permettant de lire les différentes configurations choisies dans config.txt
+        Méthode permettant de lire les différentes configurations choisies dans conf.py
         """
-        with open("config.txt", "r") as configtiles:
-            raw_config_list = [ligne for ligne in configtiles if ligne[0] != "#"]
-        return {ligne.split(":")[0].strip() : ligne.split(":")[1].strip() for ligne in raw_config_list}
+        confObject = Configuration()
+        return confObject.confDict
 
     def handleEvent(self, pushedkey):
         """
@@ -64,4 +64,15 @@ class CurrentGame():
                 if event.type == pygame.QUIT:
                     enCours = False
                 elif event.type == pygame.KEYDOWN:
-                    enCours = self.handleEvent(event.key)
+                    print("loul")
+                    print("event key : ", event.key, ", touche haut : ", self.__settings["key_up"])
+                    if event.key == self.__settings["key_up"]:
+                        print("Wow, you go up !")
+                    elif event.key == self.__settings["key_down"]:
+                        print("Wow, you go down !")
+                    elif event.key == self.__settings["key_right"]:
+                        print("Wow, you go right !")
+                    elif event.key == self.__settings["key_left"]:
+                        print("Wow, you go left !")
+                    elif event.key == self.__settings["key_action"]:
+                        print("Wow, you do something !")

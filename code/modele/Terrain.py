@@ -11,6 +11,7 @@ Ce module regroupe toutes les cases liées au terrain.
     - Case
     - Terrain
 """
+from levels import *
 
 def loadConfigTiles():
     with open("modele/config_tiles.txt", "r") as configtiles:
@@ -102,7 +103,6 @@ class Niveau():
 
         :param fichier: chemin du fichier a charger
         """
-
         with open(fichier, "r") as niveau:
             liste = [x.strip("\n ") for x in niveau]
         raw_matrice = [x.split("|") for x in liste]
@@ -116,9 +116,15 @@ class Niveau():
         self.taillex = maxTailleX
 
         tilesDict = loadConfigTiles()
-
+        print(raw_matrice)
         self.__matrice = [[tilesDict[name] for name in x] for x in raw_matrice]
 
+    def chargerNiveau(self, nomNiveau):
+        '''
+        Méthode permettant de charger un niveau dans la matrice
+        :param nomNiveau:
+        :return:
+        '''
 
 class Immeuble():
     """
