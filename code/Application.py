@@ -1,14 +1,13 @@
 __author__ = 'Argann'
 
-import modele.Terrain as Terrain
 import pygame
 from pygame.locals import *
 import Game
+import modele.Terrain as Terrain
 
 if __name__ == '__main__':
-    niveau = Terrain.Niveau(fichier="levels/dev_level1")
     immo = Terrain.Immeuble()
-    immo.ajouterNiveau(niveau)
-
-    jeu = Game.CurrentGame(immeuble=immo)
+    nivo = Terrain.Niveau("dev_test1")
+    immo.ajouterNiveau(nivo)
+    jeu = Game.CurrentGame(immo)
     jeu.play()

@@ -11,14 +11,12 @@ Ce module regroupe toutes les cases liées au terrain.
     - Case
     - Terrain
 """
-from levels import *
+from modconf.tiles import Tiles
+from modconf.levels import Levels
 
 def loadConfigTiles():
-    with open("modele/config_tiles.txt", "r") as configtiles:
-        liste = [x for x in configtiles]
-    raw_tilesList = [[x.strip() for x in y.split(";")] for y in liste]
-    tilesDict = {name : Case(passable, bloque, "img/"+img) for (name, passable, bloque, img) in raw_tilesList}
-    return tilesDict
+    dictTiles = Tiles.tiles
+    return dictTiles
 
 
 class Case():
@@ -27,7 +25,7 @@ class Case():
     Classe définissant une case du terrain
     """
 
-    def __init__(self, passable, bloqueVision, img):
+    def __init__(self, passable=True, bloqueVision=True, img="img/dev_void.png"):
         """
         Constructeur de Case
         """
@@ -81,50 +79,19 @@ class Niveau():
     Classe définissant les méthodes et attributs d'un niveau de jeu
     """
 
-    def __init__(self, taillex=0, tailley=0, matrice=[], fichier="defaut"):
+    def __init__(self, nomNiveau="dev_emptyRoom"):
         """
         Constructeur de la classe Niveau de jeu
 
         :return: Null
         """
-        if fichier != "defaut":
-            self.chargerFichier(fichier)
-        elif matrice != []:
-            self.__matrice = matrice
-        else:
-            self.__matrice = [[Case(True, False, ".") for x in range(taillex)] for y in range(tailley)]
+        try:
+            levels = Levels.levels
+            self.__matrice = levels[nomNiveau]
+        except:
+            print("Erreur de chargement de niveau")
 
-    def getMatrice(self):
-        return self.__matrice
 
-    def chargerFichier(self, fichier):
-        """
-        Méthode permettant de charger la matrice contenue dans un fichier dans le niveau courant.
-
-        :param fichier: chemin du fichier a charger
-        """
-        with open(fichier, "r") as niveau:
-            liste = [x.strip("\n ") for x in niveau]
-        raw_matrice = [x.split("|") for x in liste]
-
-        maxTailleX = 0
-        for x in raw_matrice:
-            if(len(x) > maxTailleX):
-                maxTailleX = len(x)
-
-        self.tailley = len(raw_matrice)
-        self.taillex = maxTailleX
-
-        tilesDict = loadConfigTiles()
-        print(raw_matrice)
-        self.__matrice = [[tilesDict[name] for name in x] for x in raw_matrice]
-
-    def chargerNiveau(self, nomNiveau):
-        '''
-        Méthode permettant de charger un niveau dans la matrice
-        :param nomNiveau:
-        :return:
-        '''
 
 class Immeuble():
     """
@@ -132,7 +99,7 @@ class Immeuble():
     """
 
     def __init__(self):
-        self.__niveaux = [Niveau(20, 20)]
+        self.__niveaux = [Niveau()]
         self.__niveauCourant = 0
         self.__nbrEtages = 0
 
