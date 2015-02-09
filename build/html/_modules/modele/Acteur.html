@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>modele.Acteur &mdash; Citizen&#39;s Tales 0.1a documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Citizen&#39;s Tales 0.1a documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> Citizen's Tales</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Citizen's Tales</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>modele.Acteur</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for modele.Acteur</h1><div class="highlight"><pre>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Argann&#39;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Classe Acteur</span>
+
+<span class="sd">@author  : Argann Bonneau</span>
+<span class="sd">@version : 0.1</span>
+<span class="sd">@date    : 01-10-14</span>
+
+<span class="sd">Cette classe définit ce qu&#39;est un Acteur en général dans le jeu.</span>
+<span class="sd">---</span>
+<span class="sd">    Attributs :</span>
+
+<span class="sd">    - nom : String</span>
+<span class="sd">        correspond au nom de l&#39;acteur</span>
+
+<span class="sd">    - pdv : int</span>
+<span class="sd">        correspond aux points de vie actuels de l&#39;acteur</span>
+
+<span class="sd">    - pdvMax : int</span>
+<span class="sd">        correspond aux points de vie maximaux de l&#39;acteur</span>
+
+<span class="sd">    - posx : int</span>
+<span class="sd">        correspond à la position en X de l&#39;acteur</span>
+
+<span class="sd">    - posy : int</span>
+<span class="sd">        correspond à la position en Y de l&#39;acteur</span>
+
+<span class="sd">    - img : String</span>
+<span class="sd">        correspond au chemin d&#39;accès au sprite de l&#39;acteur</span>
+
+<span class="sd">    - equipement : Equipement</span>
+<span class="sd">        correspond a l&#39;equipement courant de l&#39;acteur</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">modele.Equipement</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<div class="viewcode-block" id="Acteur"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur">[docs]</a><span class="k">class</span> <span class="nc">Acteur</span><span class="p">():</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Acteur.</span>
+
+<span class="sd">    Un Acteur peut définir plusieurs entitées en jeu :</span>
+
+<span class="sd">    - Le personnage jouable</span>
+<span class="sd">    - Les ennemis</span>
+<span class="sd">    - Les objets destructibles</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Acteur.allowedActors"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.allowedActors">[docs]</a>    <span class="k">def</span> <span class="nf">allowedActors</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cette méthode est particulièrement utile pour la personnalisation du jeu.</span>
+
+<span class="sd">        Elle décrit tout les types d&#39;acteurs qu&#39;il est possible de trouver en jeu.</span>
+
+<span class="sd">        :return: Dictionnaire d&#39;acteurs autorisés, associant a une représentation dans la matrice l&#39;acteur correspondant</span>
+<span class="sd">        :rtype: dict(String : Acteur)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s">&quot;@&quot;</span><span class="p">:</span> <span class="n">Acteur</span><span class="p">(</span>
+                <span class="n">nom</span><span class="o">=</span><span class="s">&quot;Hero&quot;</span><span class="p">,</span>
+                <span class="n">pdv</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                <span class="n">pdvMax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                <span class="n">img</span><span class="o">=</span><span class="s">&quot;img/dev_actor.png&quot;</span><span class="p">,</span>
+                <span class="n">equip</span><span class="o">=</span><span class="n">Equipement</span><span class="p">()</span>
+            <span class="p">),</span>
+            <span class="s">&quot;.&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="s">&quot;&gt;&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="s">&quot;E&quot;</span><span class="p">:</span> <span class="n">Acteur</span><span class="p">(</span>
+                <span class="n">nom</span><span class="o">=</span><span class="s">&quot;Ennemi&quot;</span><span class="p">,</span>
+                <span class="n">pdv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                <span class="n">pdvMax</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                <span class="n">img</span><span class="o">=</span><span class="s">&quot;img/dev_actor.png&quot;</span><span class="p">,</span>
+                <span class="n">equip</span><span class="o">=</span><span class="n">Equipement</span><span class="p">()</span>
+            <span class="p">)</span>
+        <span class="p">}</span>
+</div>
+<div class="viewcode-block" id="Acteur.__init__"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">pdv</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pdvMax</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">posx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">posy</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">img</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">equip</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructeur d&#39;acteur</span>
+
+<span class="sd">        :param nom: Nom de l&#39;instance d&#39;acteur.</span>
+<span class="sd">        :type nom: String</span>
+
+<span class="sd">        :param pdv: Points de vie de l&#39;instance d&#39;acteur</span>
+<span class="sd">        :type pdv: int</span>
+
+<span class="sd">        :param pdvMax: Points de vie maximum de l&#39;instance d&#39;acteur</span>
+<span class="sd">        :type pdvMax: int</span>
+
+<span class="sd">        :param posx: Position X de l&#39;acteur dans la matrice de jeu</span>
+<span class="sd">        :type posx: int</span>
+
+<span class="sd">        :param posy: Position Y de l&#39;acteur dans la matrice de jeu</span>
+<span class="sd">        :type posy: int</span>
+
+<span class="sd">        :param img: Chemin vers l&#39;image de l&#39;instance d&#39;acteur</span>
+<span class="sd">        :type img: String</span>
+
+<span class="sd">        :param equip: Equipement spécifique a l&#39;acteur</span>
+<span class="sd">        :type equip: Equipement</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nom</span> <span class="o">=</span> <span class="n">nom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pointDeVie</span> <span class="o">=</span> <span class="n">pdv</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pointDeVieMax</span> <span class="o">=</span> <span class="n">pdvMax</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__posX</span> <span class="o">=</span> <span class="n">posx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__posY</span> <span class="o">=</span> <span class="n">posy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__img</span> <span class="o">=</span> <span class="n">img</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__equipement</span> <span class="o">=</span> <span class="n">equip</span>
+</div>
+<div class="viewcode-block" id="Acteur.deplacementRelatif"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.deplacementRelatif">[docs]</a>    <span class="k">def</span> <span class="nf">deplacementRelatif</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">changeX</span><span class="p">,</span> <span class="n">changeY</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Déplace l&#39;acteur, en faisant ces changements :</span>
+
+<span class="sd">        :param changeX: Valeur à ajouter à la position X courante</span>
+<span class="sd">        :type changeX: int</span>
+
+<span class="sd">        :param changeY: Valeur à ajouter à la position Y courante</span>
+<span class="sd">        :type changeY: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__posX</span> <span class="o">+=</span> <span class="n">changeX</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__posY</span> <span class="o">+=</span> <span class="n">changeY</span>
+</div>
+<div class="viewcode-block" id="Acteur.deplacementAbsolu"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.deplacementAbsolu">[docs]</a>    <span class="k">def</span> <span class="nf">deplacementAbsolu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">posx</span><span class="p">,</span> <span class="n">posy</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Déplace l&#39;acteur, en faisant ces changements :</span>
+
+<span class="sd">        :param posx: Nouvelle valeur de position X</span>
+<span class="sd">        :type posx: int</span>
+
+<span class="sd">        :param posy: Nouvelle valeur de position Y</span>
+<span class="sd">        :type posy: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__posX</span> <span class="o">=</span> <span class="n">posx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__posY</span> <span class="o">=</span> <span class="n">posy</span>
+</div>
+<div class="viewcode-block" id="Acteur.getPointDeVie"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.getPointDeVie">[docs]</a>    <span class="k">def</span> <span class="nf">getPointDeVie</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Getter de __pointDeVie</span>
+
+<span class="sd">            :return: Point de vie de l&#39;acteur</span>
+<span class="sd">            :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pointDeVie</span>
+</div>
+<div class="viewcode-block" id="Acteur.setPointDeVie"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.setPointDeVie">[docs]</a>    <span class="k">def</span> <span class="nf">setPointDeVie</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newValeur</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Setter __pointDeVie</span>
+
+<span class="sd">            :param newValeur: Nouvelle valeur de point de vie à assigner a l&#39;acteur</span>
+<span class="sd">            :type newValeur: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pointDeVie</span> <span class="o">=</span> <span class="n">newValeur</span>
+</div>
+<div class="viewcode-block" id="Acteur.getPointDeVieMax"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.getPointDeVieMax">[docs]</a>    <span class="k">def</span> <span class="nf">getPointDeVieMax</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Getter de __pointDeVieMax</span>
+
+<span class="sd">            :return: Points de vie maximum de l&#39;acteur</span>
+<span class="sd">            :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pointDeVieMax</span>
+</div>
+<div class="viewcode-block" id="Acteur.setPointDeVieMax"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.setPointDeVieMax">[docs]</a>    <span class="k">def</span> <span class="nf">setPointDeVieMax</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newValeur</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Setter __pointDeVieMax</span>
+
+<span class="sd">            :param newValeur: Nouvelle valeur maximum de point de vie pour l&#39;acteur</span>
+<span class="sd">            :type newValeur: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pointDeVieMax</span> <span class="o">=</span> <span class="n">newValeur</span>
+</div>
+<div class="viewcode-block" id="Acteur.soigner"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.soigner">[docs]</a>    <span class="k">def</span> <span class="nf">soigner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">soin</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Permet de soigner de soin point de vie l&#39;acteur.</span>
+
+<span class="sd">        Ne peut pas dépasser ``pdvMax``</span>
+
+<span class="sd">        :param soin: Valeur a ajouter aux points de vie de l&#39;acteur.</span>
+<span class="sd">        :type soin: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pointDeVie</span> <span class="o">+=</span> <span class="n">soin</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pointDeVie</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pointDeVieMax</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__pointDeVie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pointDeVieMax</span>
+</div>
+<div class="viewcode-block" id="Acteur.blesser"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.blesser">[docs]</a>    <span class="k">def</span> <span class="nf">blesser</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">degats</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Permet de blesser de degats point de vie l&#39;acteur.</span>
+
+<span class="sd">        Active la méthode ``tuer()`` si les PV tombent en dessous de 0</span>
+
+<span class="sd">        :param degats: Valeur à enlever aux points de vie de l&#39;acteur</span>
+<span class="sd">        :type degats: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pointDeVie</span> <span class="o">-=</span> <span class="n">degats</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pointDeVie</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tuer</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Acteur.tuer"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.tuer">[docs]</a>    <span class="k">def</span> <span class="nf">tuer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Methode activée une fois que l&#39;acteur atteint les 0 PV</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;L&#39;acteur &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nom</span><span class="p">,</span> <span class="s">&quot; est mort !&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Acteur.getPosX"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.getPosX">[docs]</a>    <span class="k">def</span> <span class="nf">getPosX</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Getter de __posX</span>
+
+<span class="sd">            :return: Position X de l&#39;acteur dans la matrice de jeu</span>
+<span class="sd">            :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__posX</span>
+</div>
+<div class="viewcode-block" id="Acteur.getPosY"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.getPosY">[docs]</a>    <span class="k">def</span> <span class="nf">getPosY</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Getter de __posY</span>
+
+<span class="sd">            :return: Position Y de l&#39;acteur dans la matrice de jeu</span>
+<span class="sd">            :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__posY</span>
+</div>
+<div class="viewcode-block" id="Acteur.getImage"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.getImage">[docs]</a>    <span class="k">def</span> <span class="nf">getImage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Getter de __img</span>
+
+<span class="sd">            :return: Chemin vers l&#39;image décrivant l&#39;acteur</span>
+<span class="sd">            :rtype: String</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__img</span>
+</div>
+<div class="viewcode-block" id="Acteur.setImage"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.setImage">[docs]</a>    <span class="k">def</span> <span class="nf">setImage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newValeur</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Setter __img</span>
+
+<span class="sd">            :param newValeur: Chemin vers une nouvelle image décrivant l&#39;acteur</span>
+<span class="sd">            :type newValeur: String</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__img</span> <span class="o">=</span> <span class="n">newValeur</span>
+</div>
+<div class="viewcode-block" id="Acteur.getNom"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.getNom">[docs]</a>    <span class="k">def</span> <span class="nf">getNom</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Getter de nom</span>
+
+<span class="sd">            :return: Nom de l&#39;acteur</span>
+<span class="sd">            :rtype: String</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nom</span>
+</div>
+<div class="viewcode-block" id="Acteur.setNom"><a class="viewcode-back" href="../../modele.Acteur.html#modele.Acteur.Acteur.setNom">[docs]</a>    <span class="k">def</span> <span class="nf">setNom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newValeur</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Setter nom</span>
+
+<span class="sd">            :param newValeur: Nouveau nom de l&#39;acteur</span>
+<span class="sd">            :type newValeur: String</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nom</span> <span class="o">=</span> <span class="n">newValeur</span></div></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Argann Bonneau.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>modele.Game &mdash; Citizen&#39;s Tales 0.1a documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Citizen&#39;s Tales 0.1a documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> Citizen's Tales</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Citizen's Tales</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>modele.Game</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for modele.Game</h1><div class="highlight"><pre>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Argann&#39;</span>
+
+
+<span class="kn">import</span> <span class="nn">pygame</span>
+<span class="kn">from</span> <span class="nn">pygame.locals</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">conf</span> <span class="kn">import</span> <span class="n">Configuration</span>
+<span class="kn">from</span> <span class="nn">modele</span> <span class="kn">import</span> <span class="n">Terrain</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Module décrivant certaines méchaniques de jeu</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="CurrentGame"><a class="viewcode-back" href="../../modele.Game.html#modele.Game.CurrentGame">[docs]</a><span class="k">class</span> <span class="nc">CurrentGame</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe décrivant l&#39;état actuel du jeu</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">immeuble</span><span class="o">=</span><span class="n">Terrain</span><span class="o">.</span><span class="n">Immeuble</span><span class="p">()):</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__settings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loadSettings</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__immeuble</span> <span class="o">=</span> <span class="n">immeuble</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__immeuble</span><span class="o">.</span><span class="n">getNiveauCourant</span><span class="p">()</span>
+        <span class="n">SCREEN_SIZE</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="s">&quot;screen_width&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="s">&quot;screen_height&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ecran</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">(</span><span class="n">SCREEN_SIZE</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__backLayer</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">Surface</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__ecran</span><span class="o">.</span><span class="n">get_size</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__midLayer</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">Surface</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__ecran</span><span class="o">.</span><span class="n">get_size</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__frontLayer</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">Surface</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__ecran</span><span class="o">.</span><span class="n">get_size</span><span class="p">())</span>
+
+<div class="viewcode-block" id="CurrentGame.refreshBackLayer"><a class="viewcode-back" href="../../modele.Game.html#modele.Game.CurrentGame.refreshBackLayer">[docs]</a>    <span class="k">def</span> <span class="nf">refreshBackLayer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">backsurf</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">Surface</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span><span class="o">.</span><span class="n">tailley</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="s">&quot;tiles_height&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span><span class="o">.</span><span class="n">taillex</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="s">&quot;tiles_width&quot;</span><span class="p">]))</span>
+        <span class="n">matriceNiveau</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span><span class="o">.</span><span class="n">getBackMatrice</span><span class="p">()</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">matriceNiveau</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">colonne</span> <span class="ow">in</span> <span class="n">ligne</span><span class="p">:</span>
+                <span class="n">backsurf</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">pygame</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">colonne</span><span class="o">.</span><span class="n">getImage</span><span class="p">()),</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="s">&quot;tiles_height&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="s">&quot;tiles_width&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">y</span><span class="p">))</span>
+                <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__backLayer</span> <span class="o">=</span> <span class="n">backsurf</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ecran</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__backLayer</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="CurrentGame.refreshMidLayer"><a class="viewcode-back" href="../../modele.Game.html#modele.Game.CurrentGame.refreshMidLayer">[docs]</a>    <span class="k">def</span> <span class="nf">refreshMidLayer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">midsurf</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">Surface</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span><span class="o">.</span><span class="n">tailley</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="s">&quot;tiles_height&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span><span class="o">.</span><span class="n">taillex</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="s">&quot;tiles_width&quot;</span><span class="p">]),</span> <span class="n">pygame</span><span class="o">.</span><span class="n">SRCALPHA</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+        <span class="n">midsurf</span><span class="o">.</span><span class="n">convert_alpha</span><span class="p">()</span>
+        <span class="n">actlist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span><span class="o">.</span><span class="n">getActorList</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">actor</span> <span class="ow">in</span> <span class="n">actlist</span><span class="p">:</span>
+            <span class="n">midsurf</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">pygame</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">actor</span><span class="o">.</span><span class="n">getImage</span><span class="p">()),</span> <span class="p">(</span><span class="n">actor</span><span class="o">.</span><span class="n">getPosX</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="s">&quot;tiles_height&quot;</span><span class="p">],</span> <span class="n">actor</span><span class="o">.</span><span class="n">getPosY</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="s">&quot;tiles_width&quot;</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__midLayer</span> <span class="o">=</span> <span class="n">midsurf</span>
+</div>
+<div class="viewcode-block" id="CurrentGame.loadSettings"><a class="viewcode-back" href="../../modele.Game.html#modele.Game.CurrentGame.loadSettings">[docs]</a>    <span class="k">def</span> <span class="nf">loadSettings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Méthode permettant de lire les différentes configurations choisies dans conf.py</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">confObject</span> <span class="o">=</span> <span class="n">Configuration</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">confObject</span><span class="o">.</span><span class="n">confDict</span>
+</div>
+<div class="viewcode-block" id="CurrentGame.deplacementEstPossible"><a class="viewcode-back" href="../../modele.Game.html#modele.Game.CurrentGame.deplacementEstPossible">[docs]</a>    <span class="k">def</span> <span class="nf">deplacementEstPossible</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">acteur</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Méthode permettant de savoir si le déplacement relatif a l&#39;acteur</span>
+<span class="sd">        (posHeroX + x et posHeroY + y) est possible ou non</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span><span class="o">.</span><span class="n">getBackMatrice</span><span class="p">()[</span><span class="n">acteur</span><span class="o">.</span><span class="n">getPosY</span><span class="p">()</span> <span class="o">+</span> <span class="n">y</span><span class="p">][</span><span class="n">acteur</span><span class="o">.</span><span class="n">getPosX</span><span class="p">()</span> <span class="o">+</span> <span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">estPassable</span><span class="p">()</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+</div>
+<div class="viewcode-block" id="CurrentGame.handleEvent"><a class="viewcode-back" href="../../modele.Game.html#modele.Game.CurrentGame.handleEvent">[docs]</a>    <span class="k">def</span> <span class="nf">handleEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pushedkey</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Méthode permettant de gérer les différents évenements de jeu</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">pushedkey</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="s">&quot;key_up&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">deplacementEstPossible</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hero</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hero</span><span class="o">.</span><span class="n">deplacementRelatif</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">pushedkey</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="s">&quot;key_down&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">deplacementEstPossible</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hero</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hero</span><span class="o">.</span><span class="n">deplacementRelatif</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">pushedkey</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="s">&quot;key_right&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">deplacementEstPossible</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hero</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hero</span><span class="o">.</span><span class="n">deplacementRelatif</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">pushedkey</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="s">&quot;key_left&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">deplacementEstPossible</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hero</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hero</span><span class="o">.</span><span class="n">deplacementRelatif</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">pushedkey</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">__settings</span><span class="p">[</span><span class="s">&quot;key_action&quot;</span><span class="p">]:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Wow, you do something !&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refreshAll</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">actorsLoop</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="CurrentGame.actorsLoop"><a class="viewcode-back" href="../../modele.Game.html#modele.Game.CurrentGame.actorsLoop">[docs]</a>    <span class="k">def</span> <span class="nf">actorsLoop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">actorlist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span><span class="o">.</span><span class="n">getActorList</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">actorlist</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span><span class="o">.</span><span class="n">indiceHero</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">deplacementEstPossible</span><span class="p">(</span><span class="n">actorlist</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">actorlist</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">deplacementRelatif</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="CurrentGame.refreshAll"><a class="viewcode-back" href="../../modele.Game.html#modele.Game.CurrentGame.refreshAll">[docs]</a>    <span class="k">def</span> <span class="nf">refreshAll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Permet d&#39;actualiser le niveau du milieu, et d&#39;afficher le niveau du bas (qui devra déjà être généré), puis le</span>
+<span class="sd">        niveau du milieu.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refreshMidLayer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ecran</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__backLayer</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ecran</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__midLayer</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="CurrentGame.play"><a class="viewcode-back" href="../../modele.Game.html#modele.Game.CurrentGame.play">[docs]</a>    <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refreshBackLayer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refreshAll</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hero</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span><span class="o">.</span><span class="n">getActorList</span><span class="p">()[</span><span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span><span class="o">.</span><span class="n">indiceHero</span><span class="p">]</span>
+        <span class="n">enCours</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">while</span> <span class="n">enCours</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">QUIT</span><span class="p">:</span>
+                    <span class="n">enCours</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">KEYDOWN</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">handleEvent</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">key</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Argann Bonneau.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

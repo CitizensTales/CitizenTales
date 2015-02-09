@@ -1,0 +1,7 @@
+modconf.tiles module
+====================
+
+.. automodule:: modconf.tiles
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,38 +1,16 @@
-modele package
+Package Modele
 ==============
 
-Submodules
-----------
-
-modele.Acteur module
---------------------
-
-.. automodule:: modele.Acteur
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-modele.Equipement module
-------------------------
-
-.. automodule:: modele.Equipement
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-modele.Terrain module
----------------------
-
-.. automodule:: modele.Terrain
-    :members:
-    :undoc-members:
-    :show-inheritance:
+Ce package contient toutes les classes correspondant aux mechaniques de jeu
+brutes.
 
 
-Module contents
----------------
+Sous-modules
+------------
 
-.. automodule:: modele
-    :members:
-    :undoc-members:
-    :show-inheritance:
+.. toctree::
+
+   modele.Acteur
+   modele.Equipement
+   modele.Game
+   modele.Terrain

@@ -11,13 +11,9 @@ Ce module regroupe toutes les cases liées au terrain.
     - Case
     - Terrain
 """
-from modconf.tiles import Tiles
-from modconf.levels import Levels
 
-def loadConfigTiles():
-    dictTiles = Tiles.tiles
-    return dictTiles
-
+from modele.Acteur import Acteur
+import copy
 
 class Case():
 
@@ -73,33 +69,206 @@ class Case():
         """
         self.__img = newValeur
 
-
 class Niveau():
     """
     Classe définissant les méthodes et attributs d'un niveau de jeu
     """
+    #On a besoin de savoir quel symbole représente un mur...
+    REPR_WALL = "X"
 
-    def __init__(self, nomNiveau="dev_emptyRoom"):
+    def allowedTiles(self):
+        return {
+        ".": Case(
+            passable=True,
+            bloqueVision=False,
+            img="img/dev_floor.png"
+        ),
+
+        "X": Case(
+            passable=False,
+            bloqueVision=True,
+            img="img/dev_wall.png"
+        ),
+
+        "_": Case(
+            passable=False,
+            bloqueVision=True,
+            img="img/dev_void.png"
+        )
+    }
+
+    def customLevels(self):
+        return {
+            "dev_test1": {
+                "base_building": [
+                    "XXXXXXXXX__XXXXXXX__XXXXXXXXX",
+                    "X.......X__X.....X__X.......X",
+                    "X.......X__X.....X__X.......X",
+                    "X.......X__X.....X__X.......X",
+                    "X.......X__X.....X__X.......X",
+                    "X.......X__X.....X__X.......X",
+                    "X.......X__X.....X__X.......X",
+                    "X.......X__X.....X__X.......X",
+                    "X.......X__X.....X__X.......X",
+                    "X.......X__X.....X__X.......X",
+                    "X.......X__X.....X__X.......X",
+                    "X.......X__X.....X__X.......X",
+                    "X.......X__X.....X__X.......X",
+                    "X.......XXXX.....XXXX.......X",
+                    "X...........................X",
+                    "X...........................X",
+                    "X...........................X",
+                    "X...........................X",
+                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                ],
+                "actors": [
+                    ".............................",
+                    ".............................",
+                    "....@...................>....",
+                    ".............................",
+                    ".............................",
+                    ".............................",
+                    ".............................",
+                    ".............................",
+                    ".............................",
+                    ".............................",
+                    ".............................",
+                    ".............................",
+                    ".............................",
+                    ".............................",
+                    ".............................",
+                    ".............................",
+                    "..............E..............",
+                    ".............................",
+                    "............................."
+                ]
+            },
+            "dev_emptyRoom": {
+                "base_building": [
+                    "XXXXXXXXXXXXXXXXXXXXX",
+                    "X...................X",
+                    "X...................X",
+                    "X...................X",
+                    "X...................X",
+                    "X...................X",
+                    "X...................X",
+                    "XXXXXXXXXXXXXXXXXXXXX"
+                ],
+                "actors": [
+                    ".....................",
+                    ".....................",
+                    ".....................",
+                    "..........@..........",
+                    ".....................",
+                    ".....................",
+                    ".....................",
+                    "....................."
+                ]
+            },
+            "dev_wallsTest" : {
+                "base_building": [
+                    "XXXXXXXXXXXXXXXXXXXXX",
+                    "X....X....X.........X",
+                    "X...XXX..XX.........X",
+                    "X....X...X..........X",
+                    "X....X..............X",
+                    "X...........X.......X",
+                    "X...................X",
+                    "XXXXXXXXXXXXXXXXXXXXX"
+                ],
+                "actors": [
+                    ".....................",
+                    ".@...................",
+                    ".....................",
+                    "....................",
+                    ".....................",
+                    ".....................",
+                    ".....................",
+                    "....................."
+                ]
+            }
+        }
+
+    def __init__(self, nomNiveau="dev_wallsTest"):
         """
         Constructeur de la classe Niveau de jeu
 
         :return: Null
         """
-        try:
-            levels = Levels.levels
-            self.__matrice = levels[nomNiveau]
-        except:
-            print("Erreur de chargement de niveau")
+        self.allowedtiles = self.allowedTiles()
+        self.customlevels = self.customLevels()
+        self.__backMatrix = self.translateBackLevel(self.customlevels[nomNiveau]["base_building"])
+        self.__actorsList = self.translateMidLevel(self.customlevels[nomNiveau]["actors"])
+        self.taillex = len(self.__backMatrix)
+        self.tailley = len(self.__backMatrix[0])
 
+    def getWallImagePath(self, x, y, matrice):
+        resultat = "img/dev_wall_"
+        if x > 0:
+            if matrice[x-1][y] == self.REPR_WALL:
+                resultat += "u"
+        if x < (len(matrice)-1):
+            if matrice[x+1][y] == self.REPR_WALL:
+                resultat += "d"
+        if y > 0:
+            if matrice[x][y-1] == self.REPR_WALL:
+                resultat += "l"
+        if y < (len(matrice[x])-1):
+            if matrice[x][y+1] == self.REPR_WALL:
+                resultat += "r"
+        resultat += ".png"
+        return resultat
 
+    def translateBackLevel(self, matrice):
+        x, y = 0, 0
+        resultat = []
+        for ligne in matrice:
+            restLigne = []
+            for case in ligne:
+                if case == self.REPR_WALL:
+                    pathImage = self.getWallImagePath(x, y, matrice)
+                    caseObject = self.allowedTiles()[case]
+                    caseObject.setImage(pathImage)
+                    restLigne.append(caseObject)
+                else:
+                    restLigne.append(self.allowedTiles()[case])
+                y += 1
+            resultat.append(restLigne)
+            y = 0
+            x += 1
+        return resultat
+
+    def translateMidLevel(self, matrice):
+        act = Acteur.allowedActors()
+        actList = []
+        x, y, z = 0, 0, 0
+        for ligne in matrice:
+            for case in ligne:
+                if act[case] is not None:
+                    actor = copy.deepcopy(act[case])
+                    actor.deplacementAbsolu(x, y)
+                    actList.append(actor)
+                    if act[case].getNom() == "Hero":
+                        self.indiceHero = z
+                    z += 1
+                x += 1
+            x = 0
+            y += 1
+        return actList
+
+    def getBackMatrice(self):
+        return self.__backMatrix
+
+    def getActorList(self):
+        return self.__actorsList
 
 class Immeuble():
     """
     Classe consistant en une structure de donnée ordonnée de Niveau
     """
 
-    def __init__(self):
-        self.__niveaux = [Niveau()]
+    def __init__(self, niveauBase="dev_wallsTest"):
+        self.__niveaux = [Niveau(nomNiveau=niveauBase)]
         self.__niveauCourant = 0
         self.__nbrEtages = 0
 

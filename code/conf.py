@@ -1,5 +1,6 @@
 import pygame
 
+
 class Configuration:
     """
     Définissez les différentes options du jeu dans cette classe.
@@ -19,6 +20,7 @@ class Configuration:
             "key_action": pygame.K_SPACE,
             "tiles_height": 16,
             "tiles_width": 16,
-            "screen_height": 600,
-            "screen_width": 600
+            "screen_autoAdjust": True,
+            "screen_height": 304,
+            "screen_width": 464
         }

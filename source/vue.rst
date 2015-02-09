@@ -4,22 +4,10 @@ vue package
 Submodules
 ----------
 
-vue.Bouton module
------------------
+.. toctree::
 
-.. automodule:: vue.Bouton
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-vue.Menu module
----------------
-
-.. automodule:: vue.Menu
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
+   vue.Bouton
+   vue.Menu
 
 Module contents
 ---------------

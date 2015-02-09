@@ -1,0 +1,215 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>modele.Game module &mdash; Citizen&#39;s Tales 0.1a documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Citizen&#39;s Tales 0.1a documentation" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> Citizen's Tales</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">modele.Game module</a></li>
+</ul>
+</div>
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Citizen's Tales</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>modele.Game module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/modele.Game.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="module-modele.Game">
+<span id="modele-game-module"></span><h1>modele.Game module<a class="headerlink" href="#module-modele.Game" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="modele.Game.CurrentGame">
+<em class="property">class </em><tt class="descclassname">modele.Game.</tt><tt class="descname">CurrentGame</tt><big>(</big><em>immeuble=&lt;modele.Terrain.Immeuble object at 0x03A0F350&gt;</em><big>)</big><a class="reference internal" href="_modules/modele/Game.html#CurrentGame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Game.CurrentGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<p>Classe décrivant l&#8217;état actuel du jeu</p>
+<dl class="method">
+<dt id="modele.Game.CurrentGame.actorsLoop">
+<tt class="descname">actorsLoop</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Game.html#CurrentGame.actorsLoop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Game.CurrentGame.actorsLoop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modele.Game.CurrentGame.deplacementEstPossible">
+<tt class="descname">deplacementEstPossible</tt><big>(</big><em>acteur</em>, <em>x</em>, <em>y</em><big>)</big><a class="reference internal" href="_modules/modele/Game.html#CurrentGame.deplacementEstPossible"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Game.CurrentGame.deplacementEstPossible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Méthode permettant de savoir si le déplacement relatif a l&#8217;acteur
+(posHeroX + x et posHeroY + y) est possible ou non</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Game.CurrentGame.handleEvent">
+<tt class="descname">handleEvent</tt><big>(</big><em>pushedkey</em><big>)</big><a class="reference internal" href="_modules/modele/Game.html#CurrentGame.handleEvent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Game.CurrentGame.handleEvent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Méthode permettant de gérer les différents évenements de jeu
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Game.CurrentGame.loadSettings">
+<tt class="descname">loadSettings</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Game.html#CurrentGame.loadSettings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Game.CurrentGame.loadSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Méthode permettant de lire les différentes configurations choisies dans conf.py</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Game.CurrentGame.play">
+<tt class="descname">play</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Game.html#CurrentGame.play"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Game.CurrentGame.play" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modele.Game.CurrentGame.refreshAll">
+<tt class="descname">refreshAll</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Game.html#CurrentGame.refreshAll"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Game.CurrentGame.refreshAll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Permet d&#8217;actualiser le niveau du milieu, et d&#8217;afficher le niveau du bas (qui devra déjà être généré), puis le
+niveau du milieu.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Game.CurrentGame.refreshBackLayer">
+<tt class="descname">refreshBackLayer</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Game.html#CurrentGame.refreshBackLayer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Game.CurrentGame.refreshBackLayer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modele.Game.CurrentGame.refreshMidLayer">
+<tt class="descname">refreshMidLayer</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Game.html#CurrentGame.refreshMidLayer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Game.CurrentGame.refreshMidLayer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Argann Bonneau.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

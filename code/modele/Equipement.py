@@ -12,7 +12,22 @@ Classe Equipement
 class Equipement():
 
     """
-    Classe définissant un équipement
+    Classe définissant l'équipement d'un acteur.
+
+    Un équipement est simplement un dictionnaire décrivant les différentes parties d'un équipement, associant donc
+    pour chaque emplacement soit l'objet correspondant, soit None.
+
+    Les emplacements possibles sont :
+    - Arme principale
+    - Arme secondaire
+    - Plastron
+    - Casque
+    - Jambes
+    - Accessoire
+
+    Dans la théorie il y a deux catégories d'emplacement :
+    - Les emplacement *actifs* (Arme Principale et Secondaire), donnant accès a des compétences spéciales
+    - Les emplacements *passifs* (Le reste), donnant accès a des bonus de pdv, défense, etc.
     """
 
     def __init__(self):

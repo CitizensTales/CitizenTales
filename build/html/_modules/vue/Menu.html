@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>vue.Menu &mdash; Citizen&#39;s Tales 0.1a documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Citizen&#39;s Tales 0.1a documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> Citizen's Tales</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Citizen's Tales</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>vue.Menu</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for vue.Menu</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">vue.Bouton</span> <span class="kn">import</span> <span class="n">Bouton</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Argann&#39;</span>
+
+<span class="kn">import</span> <span class="nn">pygame</span>
+<span class="kn">from</span> <span class="nn">pygame.locals</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c">#Fonctions utiles</span>
+
+<div class="viewcode-block" id="nouvellePartie"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.nouvellePartie">[docs]</a><span class="k">def</span> <span class="nf">nouvellePartie</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Cool, une nouvelle partie !&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="chargerPartie"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.chargerPartie">[docs]</a><span class="k">def</span> <span class="nf">chargerPartie</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Hmm, il n&#39;y a pas de nouvelles parties !&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="quitter"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.quitter">[docs]</a><span class="k">def</span> <span class="nf">quitter</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">exit</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Menu"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.Menu">[docs]</a><span class="k">class</span> <span class="nc">Menu</span><span class="p">():</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe gérant l&#39;affichage d&#39;un menu, composé de boutons.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom</span><span class="o">=</span><span class="s">&quot;NONAME&quot;</span><span class="p">,</span> <span class="n">boutons</span><span class="o">=</span><span class="p">[],</span> <span class="n">autre</span><span class="o">=</span><span class="p">[],</span>
+                 <span class="n">taillex</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">tailley</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">backgroundColor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                 <span class="n">backgroundImage</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__titleText</span> <span class="o">=</span> <span class="n">nom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__boutons</span> <span class="o">=</span> <span class="n">boutons</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__autre</span> <span class="o">=</span> <span class="n">autre</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__taillex</span> <span class="o">=</span> <span class="n">taillex</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__tailley</span> <span class="o">=</span> <span class="n">tailley</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__backgroundColor</span> <span class="o">=</span> <span class="n">backgroundColor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__backgroundImage</span> <span class="o">=</span> <span class="n">backgroundImage</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    -------------------------------------------------------</span>
+<span class="sd">                    Fonctions utiles</span>
+<span class="sd">    -------------------------------------------------------</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Menu.render"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.Menu.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Méthode de génération du menu.</span>
+
+<span class="sd">        :return: retourne la pygame.Surface contenant le menu généré.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c">#--Création de la surface principale--</span>
+        <span class="n">menu</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">Surface</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">__taillex</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tailley</span><span class="p">))</span>
+        <span class="n">menu</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__backgroundColor</span><span class="p">)</span>
+
+        <span class="c">#--Création du titre--</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">Font</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">36</span><span class="p">)</span>
+        <span class="n">titre</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__titleText</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">75</span><span class="p">))</span>
+        <span class="n">posTitre</span> <span class="o">=</span> <span class="n">titre</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+        <span class="n">posTitre</span><span class="o">.</span><span class="n">centerx</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span><span class="o">.</span><span class="n">centerx</span>
+        <span class="n">menu</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">titre</span><span class="p">,</span> <span class="n">posTitre</span><span class="p">)</span>
+
+        <span class="c">#--Placement des boutons--</span>
+        <span class="n">indice</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">bouton</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__boutons</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">indice</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span><span class="p">:</span>
+                <span class="n">couleur</span> <span class="o">=</span> <span class="n">bouton</span><span class="o">.</span><span class="n">getActiveColor</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">couleur</span> <span class="o">=</span> <span class="n">bouton</span><span class="o">.</span><span class="n">getInactiveColor</span><span class="p">()</span>
+            <span class="n">btn</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">Surface</span><span class="p">((</span><span class="n">bouton</span><span class="o">.</span><span class="n">getTailleX</span><span class="p">(),</span>
+                                  <span class="n">bouton</span><span class="o">.</span><span class="n">getTailleY</span><span class="p">()))</span>
+            <span class="n">btn</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">couleur</span><span class="p">)</span>
+            <span class="n">titre</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">bouton</span><span class="o">.</span><span class="n">getText</span><span class="p">(),</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">75</span><span class="p">))</span>
+            <span class="n">posTexte</span> <span class="o">=</span> <span class="n">titre</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+            <span class="n">posTexte</span><span class="o">.</span><span class="n">centerx</span> <span class="o">=</span> <span class="n">btn</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span><span class="o">.</span><span class="n">centerx</span>
+            <span class="n">posTexte</span><span class="o">.</span><span class="n">centery</span> <span class="o">=</span> <span class="n">btn</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span><span class="o">.</span><span class="n">centery</span>
+            <span class="n">btn</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">titre</span><span class="p">,</span> <span class="n">posTexte</span><span class="p">)</span>
+            <span class="n">menu</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span> <span class="n">bouton</span><span class="o">.</span><span class="n">getPos</span><span class="p">())</span>
+            <span class="n">indice</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c">#--Et c&#39;est fini !--</span>
+        <span class="k">return</span> <span class="n">menu</span>
+</div>
+<div class="viewcode-block" id="Menu.selectButton_down"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.Menu.selectButton_down">[docs]</a>    <span class="k">def</span> <span class="nf">selectButton_down</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Méthode permettant de placer le curseur de menu sur le bouton suivant par rapport au bouton courant.</span>
+<span class="sd">        Si le bouton courant est actuellement le dernier, le curseur remonte au premier bouton.</span>
+
+<span class="sd">        :return: Null</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__boutons</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Menu.selectButton_up"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.Menu.selectButton_up">[docs]</a>    <span class="k">def</span> <span class="nf">selectButton_up</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Méthode permettant de placer le curseur de menu sur le bouton précédent par rapport au bouton courant.</span>
+<span class="sd">        Si le bouton courant est actuellement premier, le curseur descend au dernier bouton.</span>
+
+<span class="sd">        :return: Null</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__boutons</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+</div>
+<div class="viewcode-block" id="Menu.activerBoutonCourant"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.Menu.activerBoutonCourant">[docs]</a>    <span class="k">def</span> <span class="nf">activerBoutonCourant</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Permet d&#39;activer la méthode lié au bouton courant.</span>
+
+<span class="sd">        :return: Null</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__boutons</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span><span class="p">]</span><span class="o">.</span><span class="n">execCommande</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Menu.getBoutonCourant"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.Menu.getBoutonCourant">[docs]</a>    <span class="k">def</span> <span class="nf">getBoutonCourant</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne le numéro du bouton courant</span>
+
+<span class="sd">        :return: int self.__boutonCourant</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span>
+</div>
+<div class="viewcode-block" id="Menu.setBoutonCourant"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.Menu.setBoutonCourant">[docs]</a>    <span class="k">def</span> <span class="nf">setBoutonCourant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newValeur</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Méthode permettant de changer le bouton courant</span>
+
+<span class="sd">        :param newValeur: int ID du bouton qui deviendra le nouveau bouton courant.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">=</span> <span class="n">newValeur</span>
+
+</div></div>
+<div class="viewcode-block" id="MenuPrincipal"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.MenuPrincipal">[docs]</a><span class="k">class</span> <span class="nc">MenuPrincipal</span><span class="p">(</span><span class="n">Menu</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe définissant un menu principal.</span>
+
+<span class="sd">    Hérite de la classe Menu</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">taillex</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">tailley</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructeur du menu principal</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__taillex</span> <span class="o">=</span> <span class="n">taillex</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__tailley</span> <span class="o">=</span> <span class="n">tailley</span>
+        <span class="n">btnNouvellePartie</span> <span class="o">=</span> <span class="n">Bouton</span><span class="p">(</span><span class="n">texte</span><span class="o">=</span><span class="s">&quot;Nouvelle Partie&quot;</span><span class="p">,</span> <span class="n">fonction</span><span class="o">=</span><span class="n">nouvellePartie</span><span class="p">)</span>
+        <span class="n">btnChargerPartie</span> <span class="o">=</span> <span class="n">Bouton</span><span class="p">(</span><span class="n">texte</span><span class="o">=</span><span class="s">&quot;Charger&quot;</span><span class="p">,</span> <span class="n">fonction</span><span class="o">=</span><span class="n">chargerPartie</span><span class="p">)</span>
+        <span class="n">btnQuitter</span> <span class="o">=</span> <span class="n">Bouton</span><span class="p">(</span><span class="n">texte</span><span class="o">=</span><span class="s">&quot;Quitter&quot;</span><span class="p">,</span> <span class="n">fonction</span><span class="o">=</span><span class="n">quitter</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__boutons</span> <span class="o">=</span> <span class="p">[</span><span class="n">btnNouvellePartie</span><span class="p">,</span> <span class="n">btnChargerPartie</span><span class="p">,</span> <span class="n">btnQuitter</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+<div class="viewcode-block" id="MenuPrincipal.render"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.MenuPrincipal.render">[docs]</a>    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Méthode de rendu de surface du menu principal</span>
+
+<span class="sd">        :return: pygame.Surface</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c">#--Création de la surface principale--</span>
+        <span class="n">menu</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">Surface</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">__taillex</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tailley</span><span class="p">))</span>
+        <span class="n">menu</span><span class="o">.</span><span class="n">fill</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+        <span class="c">#--Création du titre--</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">Font</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">36</span><span class="p">)</span>
+        <span class="n">titre</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&quot;Citizen&#39;s Tales&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">75</span><span class="p">))</span>
+        <span class="n">posTitre</span> <span class="o">=</span> <span class="n">titre</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+        <span class="n">posTitre</span><span class="o">.</span><span class="n">centerx</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span><span class="o">.</span><span class="n">centerx</span>
+        <span class="n">menu</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">titre</span><span class="p">,</span> <span class="n">posTitre</span><span class="p">)</span>
+
+        <span class="c">#--Placement des boutons--</span>
+        <span class="n">indice</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">posy</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="k">for</span> <span class="n">bouton</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__boutons</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">indice</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span><span class="p">:</span>
+                <span class="n">couleur</span> <span class="o">=</span> <span class="n">bouton</span><span class="o">.</span><span class="n">getActiveColor</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">couleur</span> <span class="o">=</span> <span class="n">bouton</span><span class="o">.</span><span class="n">getInactiveColor</span><span class="p">()</span>
+            <span class="n">btn</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">Surface</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">__taillex</span><span class="p">,</span>
+                                  <span class="mi">60</span><span class="p">))</span>
+            <span class="n">btn</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">couleur</span><span class="p">)</span>
+
+            <span class="n">titre</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">bouton</span><span class="o">.</span><span class="n">getText</span><span class="p">(),</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">75</span><span class="p">))</span>
+            <span class="n">posTexte</span> <span class="o">=</span> <span class="n">titre</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+            <span class="n">posTexte</span><span class="o">.</span><span class="n">centerx</span> <span class="o">=</span> <span class="n">btn</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span><span class="o">.</span><span class="n">centerx</span>
+            <span class="n">posTexte</span><span class="o">.</span><span class="n">centery</span> <span class="o">=</span> <span class="n">btn</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span><span class="o">.</span><span class="n">centery</span>
+            <span class="n">btn</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">titre</span><span class="p">,</span> <span class="n">posTexte</span><span class="p">)</span>
+            <span class="n">menu</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">btn</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">posy</span><span class="p">))</span>
+            <span class="n">posy</span> <span class="o">+=</span> <span class="mi">100</span>
+            <span class="n">indice</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c">#--Et c&#39;est fini !--</span>
+        <span class="k">return</span> <span class="n">menu</span>
+</div>
+<div class="viewcode-block" id="MenuPrincipal.selectButton_down"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.MenuPrincipal.selectButton_down">[docs]</a>    <span class="k">def</span> <span class="nf">selectButton_down</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Méthode permettant de placer le curseur de menu sur le bouton suivant par rapport au bouton courant.</span>
+<span class="sd">        Si le bouton courant est actuellement le dernier, le curseur remonte au premier bouton.</span>
+
+<span class="sd">        :return: Null</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__boutons</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="MenuPrincipal.selectButton_up"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.MenuPrincipal.selectButton_up">[docs]</a>    <span class="k">def</span> <span class="nf">selectButton_up</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Méthode permettant de placer le curseur de menu sur le bouton précédent par rapport au bouton courant.</span>
+<span class="sd">        Si le bouton courant est actuellement premier, le curseur descend au dernier bouton.</span>
+
+<span class="sd">        :return: Null</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__boutons</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+</div>
+<div class="viewcode-block" id="MenuPrincipal.activerBoutonCourant"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.MenuPrincipal.activerBoutonCourant">[docs]</a>    <span class="k">def</span> <span class="nf">activerBoutonCourant</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Permet d&#39;activer la méthode lié au bouton courant.</span>
+
+<span class="sd">        :return: Null</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__boutons</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span><span class="p">]</span><span class="o">.</span><span class="n">execCommande</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="MenuPrincipal.getBoutonCourant"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.MenuPrincipal.getBoutonCourant">[docs]</a>    <span class="k">def</span> <span class="nf">getBoutonCourant</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne le numéro du bouton courant</span>
+
+<span class="sd">        :return: int self.__boutonCourant</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span>
+</div>
+<div class="viewcode-block" id="MenuPrincipal.setBoutonCourant"><a class="viewcode-back" href="../../vue.Menu.html#vue.Menu.MenuPrincipal.setBoutonCourant">[docs]</a>    <span class="k">def</span> <span class="nf">setBoutonCourant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newValeur</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Méthode permettant de changer le bouton courant</span>
+
+<span class="sd">        :param newValeur: int ID du bouton qui deviendra le nouveau bouton courant.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__boutonCourant</span> <span class="o">=</span> <span class="n">newValeur</span></div></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Argann Bonneau.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

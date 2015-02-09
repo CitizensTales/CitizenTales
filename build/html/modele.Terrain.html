@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>modele.Terrain module &mdash; Citizen&#39;s Tales 0.1a documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Citizen&#39;s Tales 0.1a documentation" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> Citizen's Tales</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">modele.Terrain module</a></li>
+</ul>
+</div>
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Citizen's Tales</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>modele.Terrain module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/modele.Terrain.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="module-modele.Terrain">
+<span id="modele-terrain-module"></span><h1>modele.Terrain module<a class="headerlink" href="#module-modele.Terrain" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="modele.Terrain.Case">
+<em class="property">class </em><tt class="descclassname">modele.Terrain.</tt><tt class="descname">Case</tt><big>(</big><em>passable=True</em>, <em>bloqueVision=True</em>, <em>img='img/dev_void.png'</em><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Case"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Case" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<p>Classe définissant une case du terrain</p>
+<dl class="method">
+<dt id="modele.Terrain.Case.estPassable">
+<tt class="descname">estPassable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Case.estPassable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Case.estPassable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __passable</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Case.getBloqueVision">
+<tt class="descname">getBloqueVision</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Case.getBloqueVision"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Case.getBloqueVision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __bloqueVision</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Case.getImage">
+<tt class="descname">getImage</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Case.getImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Case.getImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __img</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Case.setBloqueVision">
+<tt class="descname">setBloqueVision</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Case.setBloqueVision"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Case.setBloqueVision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter __bloqueVision</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Case.setImage">
+<tt class="descname">setImage</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Case.setImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Case.setImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter __img</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Case.setPassable">
+<tt class="descname">setPassable</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Case.setPassable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Case.setPassable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter __passable</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newValeur</strong> (<em>boolean</em>) &#8211; est ce que la case est passable ?</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="modele.Terrain.Immeuble">
+<em class="property">class </em><tt class="descclassname">modele.Terrain.</tt><tt class="descname">Immeuble</tt><a class="reference internal" href="_modules/modele/Terrain.html#Immeuble"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Immeuble" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<p>Classe consistant en une structure de donnée ordonnée de Niveau</p>
+<dl class="method">
+<dt id="modele.Terrain.Immeuble.ajouterNiveau">
+<tt class="descname">ajouterNiveau</tt><big>(</big><em>niveau</em><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Immeuble.ajouterNiveau"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Immeuble.ajouterNiveau" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Immeuble.descendreNiveau">
+<tt class="descname">descendreNiveau</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Immeuble.descendreNiveau"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Immeuble.descendreNiveau" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Immeuble.getNiveauCourant">
+<tt class="descname">getNiveauCourant</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Immeuble.getNiveauCourant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Immeuble.getNiveauCourant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Immeuble.monterNiveau">
+<tt class="descname">monterNiveau</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Immeuble.monterNiveau"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Immeuble.monterNiveau" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Immeuble.setNiveauCourant">
+<tt class="descname">setNiveauCourant</tt><big>(</big><em>nouveauNiveauCourant</em><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Immeuble.setNiveauCourant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Immeuble.setNiveauCourant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="modele.Terrain.Niveau">
+<em class="property">class </em><tt class="descclassname">modele.Terrain.</tt><tt class="descname">Niveau</tt><big>(</big><em>nomNiveau='dev_test1'</em><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Niveau"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Niveau" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<p>Classe définissant les méthodes et attributs d&#8217;un niveau de jeu</p>
+<dl class="method">
+<dt id="modele.Terrain.Niveau.allowedTiles">
+<tt class="descname">allowedTiles</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Niveau.allowedTiles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Niveau.allowedTiles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Niveau.customLevels">
+<tt class="descname">customLevels</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Niveau.customLevels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Niveau.customLevels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Niveau.getActorList">
+<tt class="descname">getActorList</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Niveau.getActorList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Niveau.getActorList" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Niveau.getBackMatrice">
+<tt class="descname">getBackMatrice</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Niveau.getBackMatrice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Niveau.getBackMatrice" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Niveau.translateBackLevel">
+<tt class="descname">translateBackLevel</tt><big>(</big><em>matrice</em><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Niveau.translateBackLevel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Niveau.translateBackLevel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="modele.Terrain.Niveau.translateMidLevel">
+<tt class="descname">translateMidLevel</tt><big>(</big><em>matrice</em><big>)</big><a class="reference internal" href="_modules/modele/Terrain.html#Niveau.translateMidLevel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Terrain.Niveau.translateMidLevel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Argann Bonneau.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>modele.Equipement &mdash; Citizen&#39;s Tales 0.1a documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Citizen&#39;s Tales 0.1a documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> Citizen's Tales</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Citizen's Tales</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>modele.Equipement</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for modele.Equipement</h1><div class="highlight"><pre>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Argann&#39;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Classe Equipement</span>
+
+<span class="sd">@author  : Argann Bonneau</span>
+<span class="sd">@version : 0.1</span>
+<span class="sd">@date    : 18-11-14</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="Equipement"><a class="viewcode-back" href="../../modele.Equipement.html#modele.Equipement.Equipement">[docs]</a><span class="k">class</span> <span class="nc">Equipement</span><span class="p">():</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe définissant l&#39;équipement d&#39;un acteur.</span>
+
+<span class="sd">    Un équipement est simplement un dictionnaire décrivant les différentes parties d&#39;un équipement, associant donc</span>
+<span class="sd">    pour chaque emplacement soit l&#39;objet correspondant, soit None.</span>
+
+<span class="sd">    Les emplacements possibles sont :</span>
+<span class="sd">    - Arme principale</span>
+<span class="sd">    - Arme secondaire</span>
+<span class="sd">    - Plastron</span>
+<span class="sd">    - Casque</span>
+<span class="sd">    - Jambes</span>
+<span class="sd">    - Accessoire</span>
+
+<span class="sd">    Dans la théorie il y a deux catégories d&#39;emplacement :</span>
+<span class="sd">    - Les emplacement *actifs* (Arme Principale et Secondaire), donnant accès a des compétences spéciales</span>
+<span class="sd">    - Les emplacements *passifs* (Le reste), donnant accès a des bonus de pdv, défense, etc.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__contenu</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Equipement.changerArmePrincipale"><a class="viewcode-back" href="../../modele.Equipement.html#modele.Equipement.Equipement.changerArmePrincipale">[docs]</a>    <span class="k">def</span> <span class="nf">changerArmePrincipale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newArme</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Permet de changer l&#39;arme principale par l&#39;arme donnée en paramètre</span>
+
+<span class="sd">        :param newArme: Objet nouvelle arme principale</span>
+
+<span class="sd">        :return: Null</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__contenu</span><span class="p">[</span><span class="s">&quot;ArmePrincipale&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">newArme</span>
+</div>
+<div class="viewcode-block" id="Equipement.changerArmeSecondaire"><a class="viewcode-back" href="../../modele.Equipement.html#modele.Equipement.Equipement.changerArmeSecondaire">[docs]</a>    <span class="k">def</span> <span class="nf">changerArmeSecondaire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newArme</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Permet de changer l&#39;arme secondaire par l&#39;arme donnée en paramètre</span>
+
+<span class="sd">        :param newArme: Objet nouvelle arme secondaire</span>
+
+<span class="sd">        :return: Null</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__contenu</span><span class="p">[</span><span class="s">&quot;ArmeSecondaire&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">newArme</span>
+</div>
+<div class="viewcode-block" id="Equipement.changerPlastron"><a class="viewcode-back" href="../../modele.Equipement.html#modele.Equipement.Equipement.changerPlastron">[docs]</a>    <span class="k">def</span> <span class="nf">changerPlastron</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newPlastron</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Permet de changer le plastron par l&#39;objet donné en paramètre</span>
+
+<span class="sd">        :param newArme: Objet nouveau plastron</span>
+
+<span class="sd">        :return: Null</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__contenu</span><span class="p">[</span><span class="s">&quot;Plastron&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">newPlastron</span>
+</div>
+<div class="viewcode-block" id="Equipement.changerCasque"><a class="viewcode-back" href="../../modele.Equipement.html#modele.Equipement.Equipement.changerCasque">[docs]</a>    <span class="k">def</span> <span class="nf">changerCasque</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newCasque</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Permet de changer le casque par l&#39;objet donné en paramètre</span>
+
+<span class="sd">        :param newArme: Objet nouveau casque</span>
+
+<span class="sd">        :return: Null</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__contenu</span><span class="p">[</span><span class="s">&quot;Casque&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">newCasque</span>
+</div>
+<div class="viewcode-block" id="Equipement.changerJambes"><a class="viewcode-back" href="../../modele.Equipement.html#modele.Equipement.Equipement.changerJambes">[docs]</a>    <span class="k">def</span> <span class="nf">changerJambes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newJambes</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Permet de changer l&#39;équipement de jambes par l&#39;objet donné en paramètre</span>
+
+<span class="sd">        :param newArme: Objet nouvel équipement de jambes</span>
+
+<span class="sd">        :return: Null</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__contenu</span><span class="p">[</span><span class="s">&quot;Jambes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">newJambes</span>
+</div>
+<div class="viewcode-block" id="Equipement.changerAccessoire"><a class="viewcode-back" href="../../modele.Equipement.html#modele.Equipement.Equipement.changerAccessoire">[docs]</a>    <span class="k">def</span> <span class="nf">changerAccessoire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newAccessoire</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Permet de changer l&#39;accessoire courant par l&#39;objet donné en paramètre</span>
+
+<span class="sd">        :param newArme: Objet nouvel accessoire</span>
+
+<span class="sd">        :return: Null</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__contenu</span><span class="p">[</span><span class="s">&quot;Accessoire&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">newAccessoire</span>
+</div>
+<div class="viewcode-block" id="Equipement.getArmePrincipale"><a class="viewcode-back" href="../../modele.Equipement.html#modele.Equipement.Equipement.getArmePrincipale">[docs]</a>    <span class="k">def</span> <span class="nf">getArmePrincipale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne l&#39;arme principale de l&#39;équipement</span>
+
+<span class="sd">        :return: Objet arme principale</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__contenu</span><span class="p">[</span><span class="s">&quot;ArmePrincipale&quot;</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="Equipement.getArmeSecondaire"><a class="viewcode-back" href="../../modele.Equipement.html#modele.Equipement.Equipement.getArmeSecondaire">[docs]</a>    <span class="k">def</span> <span class="nf">getArmeSecondaire</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne l&#39;arme secondaire de l&#39;équipement</span>
+
+<span class="sd">        :return: Objet arme secondaire</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__contenu</span><span class="p">[</span><span class="s">&quot;ArmeSecondaire&quot;</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="Equipement.getPlastron"><a class="viewcode-back" href="../../modele.Equipement.html#modele.Equipement.Equipement.getPlastron">[docs]</a>    <span class="k">def</span> <span class="nf">getPlastron</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne le plastron de l&#39;équipement</span>
+
+<span class="sd">        :return: Objet plastron</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__contenu</span><span class="p">[</span><span class="s">&quot;Plastron&quot;</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="Equipement.getCasque"><a class="viewcode-back" href="../../modele.Equipement.html#modele.Equipement.Equipement.getCasque">[docs]</a>    <span class="k">def</span> <span class="nf">getCasque</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne le casque de l&#39;équipement</span>
+
+<span class="sd">        :return: Objet casque</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__contenu</span><span class="p">[</span><span class="s">&quot;Casque&quot;</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="Equipement.getJambes"><a class="viewcode-back" href="../../modele.Equipement.html#modele.Equipement.Equipement.getJambes">[docs]</a>    <span class="k">def</span> <span class="nf">getJambes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne l&#39;équipement de jambes</span>
+
+<span class="sd">        :return: Objet jambes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__contenu</span><span class="p">[</span><span class="s">&quot;Jambes&quot;</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="Equipement.getAccessoire"><a class="viewcode-back" href="../../modele.Equipement.html#modele.Equipement.Equipement.getAccessoire">[docs]</a>    <span class="k">def</span> <span class="nf">getAccessoire</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retourne l&#39;accessoire de l&#39;équipement</span>
+
+<span class="sd">        :return: Objet accessoire</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__contenu</span><span class="p">[</span><span class="s">&quot;Accessoire&quot;</span><span class="p">]</span></div></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Argann Bonneau.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Module Acteur &mdash; Citizen&#39;s Tales 0.1a documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Citizen&#39;s Tales 0.1a documentation" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> Citizen's Tales</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Module Acteur</a></li>
+</ul>
+</div>
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Citizen's Tales</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Module Acteur</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/modele.Acteur.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="module-acteur">
+<h1>Module Acteur<a class="headerlink" href="#module-acteur" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-modele.Acteur"></span><dl class="class">
+<dt id="modele.Acteur.Acteur">
+<em class="property">class </em><tt class="descclassname">modele.Acteur.</tt><tt class="descname">Acteur</tt><big>(</big><em>nom=''</em>, <em>pdv=0</em>, <em>pdvMax=0</em>, <em>posx=0</em>, <em>posy=0</em>, <em>img=''</em>, <em>equip=None</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classe Acteur.</p>
+<p>Un Acteur peut définir plusieurs entitées en jeu :</p>
+<ul class="simple">
+<li>Le personnage jouable</li>
+<li>Les ennemis</li>
+<li>Les objets destructibles</li>
+</ul>
+<dl class="method">
+<dt id="modele.Acteur.Acteur.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>nom=''</em>, <em>pdv=0</em>, <em>pdvMax=0</em>, <em>posx=0</em>, <em>posy=0</em>, <em>img=''</em>, <em>equip=None</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructeur d&#8217;acteur</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nom</strong> (<em>String</em>) &#8211; Nom de l&#8217;instance d&#8217;acteur.</li>
+<li><strong>pdv</strong> (<em>int</em>) &#8211; Points de vie de l&#8217;instance d&#8217;acteur</li>
+<li><strong>pdvMax</strong> (<em>int</em>) &#8211; Points de vie maximum de l&#8217;instance d&#8217;acteur</li>
+<li><strong>posx</strong> (<em>int</em>) &#8211; Position X de l&#8217;acteur dans la matrice de jeu</li>
+<li><strong>posy</strong> (<em>int</em>) &#8211; Position Y de l&#8217;acteur dans la matrice de jeu</li>
+<li><strong>img</strong> (<em>String</em>) &#8211; Chemin vers l&#8217;image de l&#8217;instance d&#8217;acteur</li>
+<li><strong>equip</strong> (<em>Equipement</em>) &#8211; Equipement spécifique a l&#8217;acteur</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="modele.Acteur.Acteur.__weakref__">
+<tt class="descname">__weakref__</tt><a class="headerlink" href="#modele.Acteur.Acteur.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.allowedActors">
+<tt class="descname">allowedActors</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.allowedActors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.allowedActors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cette méthode est particulièrement utile pour la personnalisation du jeu.</p>
+<p>Elle décrit tout les types d&#8217;acteurs qu&#8217;il est possible de trouver en jeu.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dictionnaire d&#8217;acteurs autorisés, associant a une représentation dans la matrice l&#8217;acteur correspondant</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict(String : Acteur)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.blesser">
+<tt class="descname">blesser</tt><big>(</big><em>degats</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.blesser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.blesser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Permet de blesser de degats point de vie l&#8217;acteur.</p>
+<p>Active la méthode <tt class="docutils literal"><span class="pre">tuer()</span></tt> si les PV tombent en dessous de 0</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>degats</strong> (<em>int</em>) &#8211; Valeur à enlever aux points de vie de l&#8217;acteur</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.deplacementAbsolu">
+<tt class="descname">deplacementAbsolu</tt><big>(</big><em>posx</em>, <em>posy</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.deplacementAbsolu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.deplacementAbsolu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Déplace l&#8217;acteur, en faisant ces changements :</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>posx</strong> (<em>int</em>) &#8211; Nouvelle valeur de position X</li>
+<li><strong>posy</strong> (<em>int</em>) &#8211; Nouvelle valeur de position Y</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.deplacementRelatif">
+<tt class="descname">deplacementRelatif</tt><big>(</big><em>changeX</em>, <em>changeY</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.deplacementRelatif"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.deplacementRelatif" title="Permalink to this definition">¶</a></dt>
+<dd><p>Déplace l&#8217;acteur, en faisant ces changements :</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>changeX</strong> (<em>int</em>) &#8211; Valeur à ajouter à la position X courante</li>
+<li><strong>changeY</strong> (<em>int</em>) &#8211; Valeur à ajouter à la position Y courante</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.getImage">
+<tt class="descname">getImage</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.getImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.getImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __img</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Chemin vers l&#8217;image décrivant l&#8217;acteur</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">String</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.getNom">
+<tt class="descname">getNom</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.getNom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.getNom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de nom</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nom de l&#8217;acteur</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">String</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.getPointDeVie">
+<tt class="descname">getPointDeVie</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.getPointDeVie"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.getPointDeVie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __pointDeVie</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Point de vie de l&#8217;acteur</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.getPointDeVieMax">
+<tt class="descname">getPointDeVieMax</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.getPointDeVieMax"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.getPointDeVieMax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __pointDeVieMax</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Points de vie maximum de l&#8217;acteur</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.getPosX">
+<tt class="descname">getPosX</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.getPosX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.getPosX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __posX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Position X de l&#8217;acteur dans la matrice de jeu</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.getPosY">
+<tt class="descname">getPosY</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.getPosY"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.getPosY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Getter de __posY</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Position Y de l&#8217;acteur dans la matrice de jeu</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.setImage">
+<tt class="descname">setImage</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.setImage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.setImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter __img</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newValeur</strong> (<em>String</em>) &#8211; Chemin vers une nouvelle image décrivant l&#8217;acteur</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.setNom">
+<tt class="descname">setNom</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.setNom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.setNom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter nom</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newValeur</strong> (<em>String</em>) &#8211; Nouveau nom de l&#8217;acteur</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.setPointDeVie">
+<tt class="descname">setPointDeVie</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.setPointDeVie"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.setPointDeVie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter __pointDeVie</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newValeur</strong> (<em>int</em>) &#8211; Nouvelle valeur de point de vie à assigner a l&#8217;acteur</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.setPointDeVieMax">
+<tt class="descname">setPointDeVieMax</tt><big>(</big><em>newValeur</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.setPointDeVieMax"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.setPointDeVieMax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setter __pointDeVieMax</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>newValeur</strong> (<em>int</em>) &#8211; Nouvelle valeur maximum de point de vie pour l&#8217;acteur</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.soigner">
+<tt class="descname">soigner</tt><big>(</big><em>soin</em><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.soigner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.soigner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Permet de soigner de soin point de vie l&#8217;acteur.</p>
+<p>Ne peut pas dépasser <tt class="docutils literal"><span class="pre">pdvMax</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>soin</strong> (<em>int</em>) &#8211; Valeur a ajouter aux points de vie de l&#8217;acteur.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="modele.Acteur.Acteur.tuer">
+<tt class="descname">tuer</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/modele/Acteur.html#Acteur.tuer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#modele.Acteur.Acteur.tuer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Methode activée une fois que l&#8217;acteur atteint les 0 PV</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Argann Bonneau.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

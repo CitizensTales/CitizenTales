@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>modele.Terrain &mdash; Citizen&#39;s Tales 0.1a documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Citizen&#39;s Tales 0.1a documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> Citizen's Tales</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Citizen's Tales</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>modele.Terrain</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for modele.Terrain</h1><div class="highlight"><pre>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Argann&#39;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Module Terrain</span>
+
+<span class="sd">@author  : Argann Bonneau</span>
+<span class="sd">@version : 0.1a</span>
+<span class="sd">@date    : 02-10-14</span>
+
+<span class="sd">Ce module regroupe toutes les cases liées au terrain.</span>
+<span class="sd">    - Case</span>
+<span class="sd">    - Terrain</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">modele.Acteur</span> <span class="kn">import</span> <span class="n">Acteur</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+
+<div class="viewcode-block" id="Case"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Case">[docs]</a><span class="k">class</span> <span class="nc">Case</span><span class="p">():</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe définissant une case du terrain</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">passable</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">bloqueVision</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">img</span><span class="o">=</span><span class="s">&quot;img/dev_void.png&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructeur de Case</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__passable</span> <span class="o">=</span> <span class="n">passable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__bloqueVision</span> <span class="o">=</span> <span class="n">bloqueVision</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__img</span> <span class="o">=</span> <span class="n">img</span>
+
+<div class="viewcode-block" id="Case.estPassable"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Case.estPassable">[docs]</a>    <span class="k">def</span> <span class="nf">estPassable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Getter de __passable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__passable</span>
+</div>
+<div class="viewcode-block" id="Case.setPassable"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Case.setPassable">[docs]</a>    <span class="k">def</span> <span class="nf">setPassable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newValeur</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Setter __passable</span>
+
+<span class="sd">        :param newValeur: est ce que la case est passable ?</span>
+
+<span class="sd">        :type newValeur: boolean</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__passable</span> <span class="o">=</span> <span class="n">newValeur</span>
+</div>
+<div class="viewcode-block" id="Case.getBloqueVision"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Case.getBloqueVision">[docs]</a>    <span class="k">def</span> <span class="nf">getBloqueVision</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Getter de __bloqueVision</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__bloqueVision</span>
+</div>
+<div class="viewcode-block" id="Case.setBloqueVision"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Case.setBloqueVision">[docs]</a>    <span class="k">def</span> <span class="nf">setBloqueVision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newValeur</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Setter __bloqueVision</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__bloqueVision</span> <span class="o">=</span> <span class="n">newValeur</span>
+</div>
+<div class="viewcode-block" id="Case.getImage"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Case.getImage">[docs]</a>    <span class="k">def</span> <span class="nf">getImage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Getter de __img</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__img</span>
+</div>
+<div class="viewcode-block" id="Case.setImage"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Case.setImage">[docs]</a>    <span class="k">def</span> <span class="nf">setImage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newValeur</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Setter __img</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__img</span> <span class="o">=</span> <span class="n">newValeur</span>
+</div></div>
+<div class="viewcode-block" id="Niveau"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Niveau">[docs]</a><span class="k">class</span> <span class="nc">Niveau</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe définissant les méthodes et attributs d&#39;un niveau de jeu</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Niveau.allowedTiles"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Niveau.allowedTiles">[docs]</a>    <span class="k">def</span> <span class="nf">allowedTiles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+        <span class="s">&quot;.&quot;</span><span class="p">:</span> <span class="n">Case</span><span class="p">(</span>
+            <span class="n">passable</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+            <span class="n">bloqueVision</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+            <span class="n">img</span><span class="o">=</span><span class="s">&quot;img/dev_floor.png&quot;</span>
+        <span class="p">),</span>
+
+        <span class="s">&quot;X&quot;</span><span class="p">:</span> <span class="n">Case</span><span class="p">(</span>
+            <span class="n">passable</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+            <span class="n">bloqueVision</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+            <span class="n">img</span><span class="o">=</span><span class="s">&quot;img/dev_wall.png&quot;</span>
+        <span class="p">),</span>
+
+        <span class="s">&quot;_&quot;</span><span class="p">:</span> <span class="n">Case</span><span class="p">(</span>
+            <span class="n">passable</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+            <span class="n">bloqueVision</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+            <span class="n">img</span><span class="o">=</span><span class="s">&quot;img/dev_void.png&quot;</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+</div>
+<div class="viewcode-block" id="Niveau.customLevels"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Niveau.customLevels">[docs]</a>    <span class="k">def</span> <span class="nf">customLevels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s">&quot;dev_test1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;base_building&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s">&quot;XXXXXXXXX__XXXXXXX__XXXXXXXXX&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X.......X__X.....X__X.......X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X.......X__X.....X__X.......X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X.......X__X.....X__X.......X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X.......X__X.....X__X.......X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X.......X__X.....X__X.......X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X.......X__X.....X__X.......X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X.......X__X.....X__X.......X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X.......X__X.....X__X.......X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X.......X__X.....X__X.......X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X.......X__X.....X__X.......X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X.......X__X.....X__X.......X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X.......X__X.....X__X.......X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X.......XXXX.....XXXX.......X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X...........................X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X...........................X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X...........................X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X...........................X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>
+                <span class="p">],</span>
+                <span class="s">&quot;actors&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;....@...................&gt;....&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;..............E..............&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.............................&quot;</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="s">&quot;dev_emptyRoom&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;base_building&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s">&quot;XXXXXXXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X...................X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X...................X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X...................X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X...................X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X...................X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;X...................X&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;XXXXXXXXXXXXXXXXXXXXX&quot;</span>
+                <span class="p">],</span>
+                <span class="s">&quot;actors&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s">&quot;.....................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.....................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.....................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;..........@..........&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.....................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.....................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.....................&quot;</span><span class="p">,</span>
+                    <span class="s">&quot;.....................&quot;</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+</div>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nomNiveau</span><span class="o">=</span><span class="s">&quot;dev_test1&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructeur de la classe Niveau de jeu</span>
+
+<span class="sd">        :return: Null</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allowedtiles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">allowedTiles</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">customlevels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">customLevels</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__backMatrix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">translateBackLevel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">customlevels</span><span class="p">[</span><span class="n">nomNiveau</span><span class="p">][</span><span class="s">&quot;base_building&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__actorsList</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">translateMidLevel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">customlevels</span><span class="p">[</span><span class="n">nomNiveau</span><span class="p">][</span><span class="s">&quot;actors&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">taillex</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__backMatrix</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tailley</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__backMatrix</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Taille x = &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">taillex</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Taille y = &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tailley</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Niveau.translateBackLevel"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Niveau.translateBackLevel">[docs]</a>    <span class="k">def</span> <span class="nf">translateBackLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrice</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[[</span><span class="bp">self</span><span class="o">.</span><span class="n">allowedtiles</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">matrice</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="Niveau.translateMidLevel"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Niveau.translateMidLevel">[docs]</a>    <span class="k">def</span> <span class="nf">translateMidLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrice</span><span class="p">):</span>
+        <span class="n">act</span> <span class="o">=</span> <span class="n">Acteur</span><span class="o">.</span><span class="n">allowedActors</span><span class="p">()</span>
+        <span class="n">actList</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">matrice</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">ligne</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">act</span><span class="p">[</span><span class="n">case</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="n">actor</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">act</span><span class="p">[</span><span class="n">case</span><span class="p">])</span>
+                    <span class="n">actor</span><span class="o">.</span><span class="n">deplacementAbsolu</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+                    <span class="n">actList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">actor</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">act</span><span class="p">[</span><span class="n">case</span><span class="p">]</span><span class="o">.</span><span class="n">getNom</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;Hero&quot;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">indiceHero</span> <span class="o">=</span> <span class="n">z</span>
+                    <span class="n">z</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">actList</span>
+</div>
+<div class="viewcode-block" id="Niveau.getBackMatrice"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Niveau.getBackMatrice">[docs]</a>    <span class="k">def</span> <span class="nf">getBackMatrice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__backMatrix</span>
+</div>
+<div class="viewcode-block" id="Niveau.getActorList"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Niveau.getActorList">[docs]</a>    <span class="k">def</span> <span class="nf">getActorList</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__actorsList</span>
+</div></div>
+<div class="viewcode-block" id="Immeuble"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Immeuble">[docs]</a><span class="k">class</span> <span class="nc">Immeuble</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe consistant en une structure de donnée ordonnée de Niveau</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__niveaux</span> <span class="o">=</span> <span class="p">[</span><span class="n">Niveau</span><span class="p">()]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nbrEtages</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="Immeuble.ajouterNiveau"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Immeuble.ajouterNiveau">[docs]</a>    <span class="k">def</span> <span class="nf">ajouterNiveau</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">niveau</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__nbrEtages</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__niveaux</span> <span class="o">=</span> <span class="p">[</span><span class="n">niveau</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__niveaux</span> <span class="o">+=</span> <span class="n">niveau</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__nbrEtages</span> <span class="o">+=</span> <span class="mi">1</span>
+</div>
+<div class="viewcode-block" id="Immeuble.monterNiveau"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Immeuble.monterNiveau">[docs]</a>    <span class="k">def</span> <span class="nf">monterNiveau</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nbrEtages</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span> <span class="o">+=</span> <span class="mi">1</span>
+</div>
+<div class="viewcode-block" id="Immeuble.descendreNiveau"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Immeuble.descendreNiveau">[docs]</a>    <span class="k">def</span> <span class="nf">descendreNiveau</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span> <span class="o">+=</span> <span class="mi">1</span>
+</div>
+<div class="viewcode-block" id="Immeuble.setNiveauCourant"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Immeuble.setNiveauCourant">[docs]</a>    <span class="k">def</span> <span class="nf">setNiveauCourant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nouveauNiveauCourant</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">nouveauNiveauCourant</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">nouveauNiveauCourant</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nbrEtages</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span> <span class="o">=</span> <span class="n">nouveauNiveauCourant</span>
+</div>
+<div class="viewcode-block" id="Immeuble.getNiveauCourant"><a class="viewcode-back" href="../../modele.Terrain.html#modele.Terrain.Immeuble.getNiveauCourant">[docs]</a>    <span class="k">def</span> <span class="nf">getNiveauCourant</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__niveaux</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__niveauCourant</span><span class="p">]</span></div></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Argann Bonneau.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
